@@ -1,0 +1,55 @@
+
+
+<div class="container mt-4">
+    <h1 class="display-4">Welcome to Your Virtual Pet Sanctuary!</h1>
+    <p class="lead">Where every virtual pet finds a loving home.</p>
+
+    <div class="row mt-4">
+        <!-- Equal Square Cards -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card card-square card-stats">
+                <div class="card-body">
+                    <h5 class="card-title">Sanctuary Stats</h5>
+                    <app-stats-chart></app-stats-chart>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card card-square card-adoption">
+                <div class="card-body">
+                    <h5 class="card-title">Adoption Center</h5>
+                    <p class="card-text">Find your new virtual companion!</p>
+                    <a routerLink="/adoption-center"
+                        class="btn btn-primary">Visit Adoption Center</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card card-square card-my-pets">
+                <div class="card-body">
+                    <h5 class="card-title">My Pets</h5>
+                    <p class="card-text">Check on your adorable virtual
+                        pets.</p>
+                    <a routerLink="/my-pets" class="btn btn-primary">See My
+                        Pets</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- News Feed -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-news-feed">
+                <div class="card-body">
+                    <h5 class="card-title">Pets News Feed</h5>
+                    <ul class="news-list">
+                        <li>New study shows benefits of pet companionship.</li>
+                        <li>Virtual pet adoption on the rise in 2024.</li>
+                        <li>Top 10 tips for caring for your virtual pets.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
