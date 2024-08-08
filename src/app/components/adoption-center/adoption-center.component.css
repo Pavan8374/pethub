@@ -1,0 +1,76 @@
+/* adoption-center.component.css */
+.adoption-center {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+header {
+  background: linear-gradient(135deg, #6dd5ed, #2193b0);
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.pet-card {
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.pet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.pet-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.pet-card .card-title {
+  font-weight: bold;
+  color: #333;
+}
+
+.pet-card .card-text {
+  color: #666;
+}
+
+.pet-card .list-group-item {
+  background-color: transparent;
+  border-color: rgba(0,0,0,0.05);
+}
+
+.pet-card .btn-primary {
+  background-color: #2193b0;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.pet-card .btn-primary:hover {
+  background-color: #1c7a94;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(33, 147, 176, 0.3);
+}
+
+.badge {
+  font-size: 0.9em;
+  padding: 0.5em 1em;
+  border-radius: 20px;
+}
+
+.badge-dog {
+  background-color: #ffd166;
+  color: #333;
+}
+
+.badge-cat {
+  background-color: #06d6a0;
+  color: white;
+}
+
+.badge-rabbit {
+  background-color: #118ab2;
+  color: white;
+}
