@@ -10,6 +10,7 @@ interface Pet {
   age: number;
   energy: number;
   happiness: number;
+  funFact?:string;
 }
 
 @Component({
@@ -29,17 +30,19 @@ export class AdoptionCenterComponent {
       description: 'Friendly golden retriever who loves to play fetch.',
       age: 730,
       energy: 85,
-      happiness: 90
+      happiness: 90,
+      funFact: "cute little dogs never smile"
     },
     {
       id: 2,
       name: 'Whiskers',
       type: 'Cat',
-      imageUrl: 'https://cataas.com/cat',
+      imageUrl: 'assets/images/cat.jpg',
       description: 'Curious tabby cat with a love for sunny windowsills.',
       age: 1095,
       energy: 60,
-      happiness: 75
+      happiness: 75,
+      funFact: "Cats are faster than snakes interms of speed of action"
     },
     {
       id: 3,
@@ -49,7 +52,8 @@ export class AdoptionCenterComponent {
       description: 'Energetic bunny who enjoys hopping around the garden.',
       age: 365,
       energy: 95,
-      happiness: 85
+      happiness: 85,
+      funFact: "Bunny's never forget to eat"
     },
     // Add more mock pets as needed
   ];

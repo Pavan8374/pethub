@@ -3,14 +3,16 @@
 export abstract class Pet
 {
     constructor(
-        public id: string,
-        public name: string,
-        public type: string,
+        public id?: string,
+        public name?: string,
+        public type?: string,
         public health: number = 100,
         public happiness: number = 50,
         public hunger: number = 0,
         public energy: number = 100,
-        public age: number = 0
+        public age: number = 0,
+        public imageURL?: string,
+        funFact?: string
     ) { }
 
     abstract makeSound(): string;

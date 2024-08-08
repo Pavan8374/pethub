@@ -1,0 +1,41 @@
+.vh-100 {
+    height: 100vh;
+    background-color: #0ff;
+    background-image: url('https://www.transparenttextures.com/patterns/cartographer.png');
+}
+
+.card {
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.h1 {
+    color: #ff007f;
+}
+
+.form-outline .form-control {
+    border-radius: 15px;
+    background-color: #eef;
+    box-shadow: inset 0 0 10px rgba(0, 0, 255, 0.2);
+}
+
+.form-outline .form-label {
+    color: #ff007f;
+}
+
+.btn-primary {
+    background-color: #ff007f;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #ff007f;
+}
+
+.form-check-input {
+    border-radius: 50%;
+    background-color: #ff007f;
+}
+
+.form-check-label a {
+    color: #00f;
+    text-shadow: 0 0 10px #0ff;
+}
+
