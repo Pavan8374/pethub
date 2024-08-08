@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Virtual Pet Sanctuary</a>
+    <a class="navbar-brand" href="#">🐾 Virtual Pet Sanctuary</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
         data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -13,12 +13,24 @@
                 <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Adoption Center</a>
+                <a routerLink="/adoption-center"
+                        class="btn btn-adopt">Adoption Center</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">My Pets</a>
+                <a routerLink="/my-pets"
+                class="btn btn-my-pets">My Pets</a>
+            </li>
+            
+            <li class="nav-item">
+                <a routerLink="/sign-up"
+                class="btn btn-sign-up">Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/login"
+                class="btn btn-login">Log in</a>
             </li>
         </ul>
     </div>
 </nav>
+
 <router-outlet></router-outlet>
