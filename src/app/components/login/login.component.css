@@ -1,6 +1,6 @@
 .vh-100 {
     height: 100vh;
-    background-color: #0ff;
+    background-color: blueviolet;
     background-image: url('https://www.transparenttextures.com/patterns/cartographer.png');
 }
 
@@ -47,7 +47,31 @@ p.mb-0 a {
 .custom-gif {
     max-width: 100%;
     height: auto;
-    /* Adjust the width and height as needed */
     width: 100%;
-    max-width: 300px; /* Set a max-width to control the size */
-  }
+    max-width: 300px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .vh-100 {
+        height: auto;
+    }
+    .card {
+        margin: 20px 0;
+    }
+    .custom-gif {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 769px) {
+    .vh-100 {
+        height: 100vh;
+    }
+    .custom-gif {
+        max-width: 80%;
+        height: auto;
+    }
+}
