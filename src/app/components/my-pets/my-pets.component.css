@@ -1,0 +1,123 @@
+/* General Styling */
+.pets-container {
+  font-family: 'Comic Sans MS', cursive;
+  background-color: #e6f7ff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.header {
+  background-color: #b3e0ff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+}
+
+.header h1 {
+  color: #3399ff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header p {
+  color: #007acc;
+  font-weight: bold;
+}
+
+/* Card Styles */
+.pet-card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.pet-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.pet-header {
+  background-color: #b3e0ff;
+  border-bottom: 2px solid #3399ff;
+  text-align: center;
+  padding: 15px;
+}
+
+.pet-header h2 {
+  color: #3399ff;
+}
+
+.pet-header .pet-type {
+  color: #007acc;
+  font-weight: bold;
+}
+
+.card-img-top {
+  border-bottom: 2px solid #3399ff;
+  transition: opacity 0.3s;
+}
+
+.card-img-top:hover {
+  opacity: 0.8;
+}
+
+.pet-body {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.pet-body p {
+  color: #007acc;
+}
+
+.pet-footer {
+  background-color: #f0f8ff;
+  padding: 15px;
+  border-top: 2px solid #3399ff;
+  text-align: center;
+}
+
+.btn {
+  border-radius: 20px;
+  font-family: 'Comic Sans MS', cursive;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-feed {
+  background-color: #ffcc99;
+  color: #fff;
+}
+
+.btn-feed:hover {
+  background-color: #ffb366;
+  box-shadow: 0 4px 8px rgba(255, 153, 102, 0.6);
+}
+
+.btn-play {
+  background-color: #99ff99;
+  color: #fff;
+  margin-left: 10px;
+}
+
+.btn-play:hover {
+  background-color: #66ff66;
+  box-shadow: 0 4px 8px rgba(102, 255, 102, 0.6);
+}
+
+.btn-rest {
+  background-color: #ff9999;
+  color: #fff;
+  margin-left: 10px;
+}
+
+.btn-rest:hover {
+  background-color: #ff6666;
+  box-shadow: 0 4px 8px rgba(255, 102, 102, 0.6);
+}

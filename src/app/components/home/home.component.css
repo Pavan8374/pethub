@@ -1,119 +1,124 @@
-/* Common Styles for All Cards */
-.card {
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.2s;
-    margin-bottom: 20px;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card-body {
+/* General Styling */
+.home-container {
+    font-family: 'Comic Sans MS', cursive;
+    background-color: #f0f8ff;
+    border-radius: 15px;
     padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.5s;
 }
 
-/* Card Titles */
-.card-title {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-/* Card Text */
-.card-text {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
-    color: #555;
+h1.display-4 {
+    color: #ff69b4;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: bounceIn 2s;
 }
 
-/* Specific Themes for Different Cards */
+@keyframes bounceIn {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+.lead {
+    color: #ff7f50;
+    font-weight: bold;
+}
+
+/* Card Styles */
+.card-square {
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
 .card-stats {
-    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    background-color: #48d1cc;
     color: white;
 }
 
 .card-adoption {
-    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+    background-color: #ff69b4;
     color: white;
 }
 
 .card-my-pets {
-    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    background-color: #9370db;
     color: white;
 }
 
+.card-square:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.btn {
+    border-radius: 20px;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+.btn-adopt {
+    background-color: #ff4500;
+    color: white;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-adopt:hover {
+    background-color: #ff6347;
+    box-shadow: 0 0 15px rgba(255, 99, 71, 0.6);
+}
+
+.btn-my-pets {
+    background-color: #20b2aa;
+    color: white;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-my-pets:hover {
+    background-color: #5f9ea0;
+    box-shadow: 0 0 15px rgba(32, 178, 170, 0.6);
+}
+
+/* News Feed Styles */
 .card-news-feed {
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-    color: white;
+    background-color: #ffefd5;
+    color: #ff4500;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Square Cards */
-.card-square {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.card-news-feed .card-title {
+    color: #ff4500;
 }
 
-/* Container and Row Styles */
-.container {
-    font-family: 'Roboto', sans-serif;
-}
-
-h1.display-4 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-p.lead {
-    font-size: 1.25rem;
-    margin-bottom: 30px;
-}
-
-.btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-    transition: background-color 0.2s, border-color 0.2s;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #004085;
-}
-
-/* Responsive Design */
-@media (max-width: 767px) {
-    .card-square {
-        margin-bottom: 20px;
-    }
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.card {
-    animation: fadeInUp 0.5s ease-out;
-}
-
-/* News Feed List */
 .news-list {
     list-style-type: none;
     padding: 0;
+    font-size: 1.2rem;
 }
 
 .news-list li {
-    margin-bottom: 10px;
+    padding: 10px 0;
+    border-bottom: 1px dashed #ff4500;
+}
+
+.news-list li:last-child {
+    border-bottom: none;
 }

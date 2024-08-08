@@ -1,1 +1,34 @@
-<app-adoption-center></app-adoption-center>
+<div class="pets-container">
+  <header class="text-center py-5 mb-4 header">
+    <h1 class="display-4">Meet Your Adorable Pets!</h1>
+    <p class="lead">Check on your beloved virtual pets and keep them happy and healthy.</p>
+    <a routerLink="/adoption-center" class="btn btn-primary btn-lg">Adopt a New Pet</a>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let pet of myPets" class="pet-card">
+        <div class="card h-100">
+          <div class="pet-header">
+            <h2>{{ pet.name }}</h2>
+            <p class="pet-type">{{ pet.type }}</p>
+          </div>
+          <img [src]="pet.imageURL" class="card-img-top" [alt]="pet.name">
+          <div class="pet-body">
+            <p><strong>Health:</strong> {{ pet.health }}%</p>
+            <p><strong>Happiness:</strong> {{ pet.happiness }}%</p>
+            <p><strong>Hunger:</strong> {{ pet.hunger }}%</p>
+            <p><strong>Energy:</strong> {{ pet.energy }}%</p>
+            <p><strong>Age:</strong> {{ pet.age }} days</p>
+            <p><strong>Well-being:</strong> {{ pet.wellBeing }}%</p>
+          </div>
+          <div class="pet-footer">
+            <button class="btn btn-feed" (click)="pet.feed()">Feed</button>
+            <button class="btn btn-play" (click)="pet.play()">Play</button>
+            <button class="btn btn-rest" (click)="pet.rest()">Rest</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
