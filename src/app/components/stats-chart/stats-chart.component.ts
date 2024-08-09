@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Chart } from 'chart.js';
+import { Component, AfterViewInit } from '@angular/core';
+import { Chart } from 'chart.js/auto';
 
 @Component({
   selector: 'app-stats-chart',
@@ -7,11 +7,9 @@ import { Chart } from 'chart.js';
   templateUrl: './stats-chart.component.html',
   styleUrls: ['./stats-chart.component.css']
 })
-export class StatsChartComponent implements OnInit {
+export class StatsChartComponent implements AfterViewInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.createChart();
   }
 
