@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  
+      - main  # Trigger on pushes to the main branch
 
 jobs:
   build-and-deploy:
@@ -11,25 +11,28 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4 
+        uses: actions/checkout@v4
+
       - name: Set up Node.js
-        uses: actions/setup-node@v4  
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'  
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
 
       - name: Build project
         env:
-          PET_API_KEY: ${{ secrets.PET_API_KEY }} 
+          PET_API_KEY: ${{ secrets.PET_API_KEY }}
         run: |
-          # Optionally create a temporary environment file or directly replace API key
           echo "API_KEY=${{ secrets.PET_API_KEY }}" > .env
           npm run build --prod
 
+      - name: Print directory contents
+        run: ls -la
+
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4 
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist/virtual-pet-sanctuary
