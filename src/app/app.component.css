@@ -1,12 +1,60 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+/* SVG Background */
+svg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.out-top {
+    animation: rotate 20s linear infinite;
+    transform-origin: 13px 25px;
+}
+
+.in-top {
+    animation: rotate 10s linear infinite;
+    transform-origin: 13px 25px;
+}
+
+.out-bottom {
+    animation: rotate 25s linear infinite;
+    transform-origin: 84px 93px;
+}
+
+.in-bottom {
+    animation: rotate 15s linear infinite;
+    transform-origin: 84px 93px;
+}
+
 /* Navbar Styling */
 .navbar {
-    background-color: #ffefd5;
+    background-color: rgba(255, 239, 213, 0.8);
     border-bottom: 3px solid #ff69b4;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
 }
 
 .navbar-brand {
-    font-family: 'Comic Sans MS', cursive;
     font-size: 1.5rem;
     color: #ff69b4;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
@@ -38,7 +86,6 @@
 
 /* Button Styles */
 .btn {
-    font-family: 'Comic Sans MS', cursive;
     font-size: 1rem;
     margin-right: 10px;
     color: white;
@@ -82,4 +129,33 @@
     box-shadow: 0 0 15px rgba(147, 112, 219, 0.6);
 }
 
-  
+/* Links */
+.links {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 18px;
+    z-index: 1;
+}
+
+.links a {
+    text-decoration: none;
+    color: black;
+    margin-left: 1em;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+.links a img.icon {
+    display: inline-block;
+    height: 1em;
+    margin: 0 0 -0.1em 0.3em;
+}
+
+/* Router Outlet */
+router-outlet {
+    position: relative;
+    z-index: 1;
+}
