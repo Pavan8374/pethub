@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    petApiKey: 'your-api-key-here' 
+    PETS_API_KEY: 'your-api-key-here' 
   };
