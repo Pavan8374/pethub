@@ -6,20 +6,25 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-4 mb-4" *ngFor="let pet of availablePets">
+      <div class="col-md-4 mb-4" *ngFor="let pet of allAnimals">
         <div class="card h-100 pet-card">
-          <div class="card-header bg-transparent border-0 text-center">
-            <span class="badge" [ngClass]="getPetTypeBadgeClass(pet.type)">{{pet.type}}</span>
-          </div>
-          <img [src]="pet.imageUrl" class="card-img-top" [alt]="pet.name">
+          <!-- <div class="card-header bg-transparent border-0 text-center">
+            <span class="badge" [ngClass]="getPetTypeBadgeClass(pet.species)">{{pet.species}}</span>
+          </div> -->
+          <img [src]="pet.image" class="card-img-top" [alt]="pet.name">
           <div class="card-body">
             <h5 class="card-title">{{pet.name}}</h5>
-            <p class="card-text">{{pet.description}}</p>
+            <p class="card-text">{{pet.desciption}}</p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Age: {{pet.age}} days</li>
-            <li class="list-group-item">Energy: {{pet.energy}}/100</li>
-            <li class="list-group-item">Happiness: {{pet.happiness}}/100</li>
+            <!-- <li class="list-group-item">Age: {{pet.age}} days</li>
+            <li class="list-group-item">Energy: {{pet.energy}}/100</li> -->
+            <li class="list-group-item">Species: {{pet.species}}</li>
+            <li class="list-group-item">Family: {{pet.family}}</li>
+            <li class="list-group-item">Place found: {{pet.place_of_found}}</li>
+            <li class="list-group-item">Diet: {{pet.diet}}/100</li>
+            <li class="list-group-item">Weight in kg: {{pet.weight_kg}}</li>
+            <li class="list-group-item">Height in cm: {{pet.height_cm}}</li>
           </ul>
           <div class="card-footer bg-transparent border-0 text-center">
             <button class="btn btn-adopt w-100" (click)="adoptPet(pet)">Adopt {{pet.name}}</button>
