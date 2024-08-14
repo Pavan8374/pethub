@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdoptionCenterPageService } from '../../services/petservice';
 import { Animal } from '../../models/pets/animal';
-import { NgxSpinnerService } from 'ngx-spinner';
+//import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-adoption-center',
   standalone: true,
@@ -13,7 +13,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class AdoptionCenterComponent {
   allAnimals: any;
     private _adoptionCenterPageService = inject(AdoptionCenterPageService);
-    private _spinner =  inject(NgxSpinnerService);
+    //private _spinner =  inject(NgxSpinnerService);
 
 
     ngOnInit() {
@@ -21,15 +21,15 @@ export class AdoptionCenterComponent {
     }
 
   getAnimals(): void {
-    this._spinner.show();
+    //this._spinner.show();
     this._adoptionCenterPageService.getAllAnimals().subscribe({
       next: (animalsResponse: Animal[]) => {
         this.allAnimals = animalsResponse;
-        this._spinner.hide();;
+        //this._spinner.hide();;
 
       },
       error: (err: any) => {
-        this._spinner.hide();;
+        //this._spinner.hide();;
       }
     });
   }
