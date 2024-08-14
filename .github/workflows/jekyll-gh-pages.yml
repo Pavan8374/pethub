@@ -1,11 +1,8 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
-
+name: Deploy to GitHub Pages
 on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -26,17 +23,31 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          source: ./
-          destination: ./_site
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        env:
+          PETS_API_KEY: ${{ secrets.PETS_API_KEY }}
+        run: |
+          echo "API_KEY=${{ secrets.PETS_API_KEY }}" > .env
+          npm run build --prod
+
+      - name: Print directory contents
+        run: ls -la
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist/virtual-pet-sanctuary
 
   # Deployment job
   deploy:
