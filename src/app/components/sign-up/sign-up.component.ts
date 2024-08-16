@@ -1,8 +1,8 @@
-// sign-up.component.ts
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { User } from '../../services/user.model';
+import { User } from '../../models/Users/user.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sign-up',
@@ -18,14 +18,17 @@ export class SignUpComponent {
     password: '',
     confirmPassword: ''
   };
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private toastr: ToastrService  
+  ) {}
   register() {
     if (this.user.password === this.user.confirmPassword) {
       this.saveUserToLocalStorage(this.user);
-      console.log('User registered successfully');
+      this.toastr.success("You registered successfully")
       this.router.navigate(['/home']);
     } else {
-      console.error('Passwords do not match');
+      this.toastr.error("Passwords not Matching")
     }
   }
 

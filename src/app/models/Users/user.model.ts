@@ -1,8 +1,8 @@
 export class User {
-    name: any;
+    name?: any;
     email: any;
     password: any;
-  confirmPassword: any;
+  confirmPassword?: any;
   }
   
   
