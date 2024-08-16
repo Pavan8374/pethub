@@ -35,8 +35,8 @@ jobs:
           angular_dist_build_folder: dist/virtual-pet-sanctuary
         env:
           PETS_API_KEY: ${{ secrets.PETS_API_KEY }}
-      - name: Print directory contents
-        run: ls -la
+      - name: Print dist directory contents
+        run: ls -la dist/virtual-pet-sanctuary
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
