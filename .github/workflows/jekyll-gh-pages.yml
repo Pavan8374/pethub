@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -24,15 +24,9 @@ jobs:
         with:
           node-version: '20'
       - name: Install dependencies
-        run: npm install
-      - name: Build and Deploy
-        uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
-          build_configuration: production
-          base_href: /virtual-pet-sanctuary/
-          deploy_branch: gh-pages
-          angular_dist_build_folder: dist/virtual-pet-sanctuary
+        run: npm ci
+      - name: Build
+        run: npm run build -- --configuration production --base-href /virtual-pet-sanctuary/
         env:
           PETS_API_KEY: ${{ secrets.PETS_API_KEY }}
       - name: Print dist directory contents
