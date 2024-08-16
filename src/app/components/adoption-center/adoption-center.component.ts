@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdoptionCenterPageService } from '../../services/petservice';
+import { AdoptionCenterPageService } from '../../services/pet.service';
 import { Animal } from '../../models/pets/animal';
 //import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
