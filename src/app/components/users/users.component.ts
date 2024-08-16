@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from '../../services/user.model';
+import { User } from '../../models/Users/user.model';
 
 @Component({
   selector: 'app-users',
@@ -10,5 +10,13 @@ import { User } from '../../services/user.model';
 })
 export class UsersComponent {
 
+  getUsers() {
+    const users = this.getUsersFromLocalStorage();
+    console.log('All users:', users);
+  }
+  private getUsersFromLocalStorage(): User[] {
+    const usersData = localStorage.getItem('users');
+    return usersData ? JSON.parse(usersData) : [];
+  }
   
 }
