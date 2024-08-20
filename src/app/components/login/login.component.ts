@@ -3,7 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { User } from '../../models/Users/user.model';
 import { UserService } from '../../services/user.service';
-import { Toast, ToastrService } from 'ngx-toastr';
+import { CustomToasterService } from '../../services/custom-toaster.service';
 
 
 @Component({
@@ -24,7 +24,7 @@ export class LoginComponent {
 
   constructor(private userService: UserService,
     private router: Router,
-    private toastr: ToastrService
+    private toasterService: CustomToasterService
 
   ) {}
 
@@ -35,12 +35,12 @@ export class LoginComponent {
     debugger;
     let user = this.users.find(u => u.email === this.user.email);
     if(user?.password == this.user.password && user != null){
-      this.toastr.success('User login successfully');
+      this.toasterService.showSuccess("Log in",'User login successfully');
       this.router.navigate(['/home']);
     }
 
     else {
-      this.toastr.error('Entered email or password incorrect');
+      this.toasterService.showError("Error",'Entered email or password incorrect');
     }
 
   }
