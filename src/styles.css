@@ -1,76 +1,81 @@
-/* In app.component.css or your global styles file */
-
+/* Night sky background */
 .night-sky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(125deg, #000033, #000066);
-    overflow: hidden;
-    z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(125deg, #000033, #000066);
+  overflow: hidden;
+  z-index: -1; /* Ensure the background stays behind other elements */
+}
+
+/* Toaster CSS */
+.toast-container {
+  z-index: 1000; /* Ensure toasts appear above other elements */
+}
+
+.custom-toast {
+  color: #fff;
+  border-radius: 25px; /* Rounded corners */
+  padding: 20px; /* Added padding for better spacing */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Stronger shadow for a more prominent look */
+  animation: slideInRight 0.5s, fadeOut 2.5s 3s forwards;
+  z-index: 1001; /* Ensuring it's on top of most other elements */
+  position: relative;
+  font-size: 1.2rem; /* Adjusted font size for better readability */
+  line-height: 1.6; /* Improved line spacing for better text visibility */
+  background-size: cover; /* Ensure background covers entire area */
+  overflow: hidden; /* Hide overflow to prevent content from spilling out */
+}
+
+/* Error Toast */
+.toast-error {
+  background-image: linear-gradient(135deg, #f1071b, #ff9271); /* Red to Orange gradient */
+}
+
+/* Success Toast */
+.toast-success {
+  background-image: linear-gradient(135deg, #00c853, #b2ff59af); /* Green to Light Green gradient */
+}
+
+/* Info Toast */
+.toast-info {
+  background-image: linear-gradient(135deg, #2196f3, #083c53); /* Blue gradient */
+}
+
+/* Warning Toast */
+.toast-warning {
+  background-image: linear-gradient(135deg, #ff9800, #ffc107); /* Orange gradient */
+}
+
+@keyframes slideInRight {
+  from {  
+      transform: translateX(100%);
+      opacity: 0;
   }
-  
-  .stars {
-    width: 100%;
-    height: 100%;
-    background-image: 
-      radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
-      radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
-      radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
-      radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
-      radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0));
-    background-repeat: repeat;
-    background-size: 200px 200px;
-    animation: twinkle 5s infinite;
+  to {
+      transform: translateX(0);
+      opacity: 1;
   }
-  
-  @keyframes twinkle {
-    0% { opacity: 0.8; }
-    50% { opacity: 1; }
-    100% { opacity: 0.8; }
+}
+
+@keyframes fadeOut {
+  to {
+      opacity: 0;
+      transform: translateX(100%);
   }
-  
-  .shooting-stars {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .shooting-stars::before, .shooting-stars::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 2px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1),
-                0 0 0 8px rgba(255, 255, 255, 0.1),
-                0 0 20px rgba(255, 255, 255, 1);
-    animation: 
-      shoot 3s infinite linear,
-      tail 3s infinite linear;
-  }
-  
-  .shooting-stars::before {
-    animation-delay: 1s;
-  }
-  
-  @keyframes shoot {
-    0% { transform: translateX(0) translateY(0); }
-    100% { transform: translateX(-100px) translateY(300px); }
-  }
-  
-  @keyframes tail {
-    0% { width: 0; }
-    30% { width: 100px; }
-    100% { width: 0; }
-  }
-  
-  /* Adjust navbar and other elements for visibility */
-  .navbar {
-    background-color: rgba(255, 239, 213, 0.8);
-    /* Other existing styles */
-  }
+}
+
+.toast-top-right {
+  top: 20px;
+  right: 20px;
+  position: fixed;
+}
+
+.toast-progress {
+  background: linear-gradient(90deg, #ff007f, #00f);
+  height: 5px;
+  border-radius: 0 0 25px 25px;
+}
+
