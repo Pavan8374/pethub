@@ -1,4 +1,3 @@
-<!-- sign-up.component.html -->
 <section class="vh-100">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100" style="padding: 50px;">
@@ -8,55 +7,100 @@
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-                <form class="mx-1 mx-md-4">
+                <form [formGroup]="signUpform" class="mx-1 mx-md-4" (ngSubmit)="onSignUpClick()">
+
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" class="form-control" [(ngModel)]="user.name" name="name" />
-                      <label class="form-label" for="form3Example1c">Your Name</label>
+                      <input type="text" id="firstName" class="form-control" formControlName="firstName" [ngClass]="{'is-invalid': signUpform.get('firstName')?.invalid && signUpform.get('firstName')?.touched}" />
+                      <label class="form-label" for="firstName">First Name</label>
+                      <div *ngIf="signUpform.get('firstName')?.invalid && signUpform.get('firstName')?.touched" class="invalid-feedback">
+                        First name is required.
+                      </div>
                     </div>
                   </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="lastName" class="form-control" formControlName="lastName" [ngClass]="{'is-invalid': signUpform.get('lastName')?.invalid && signUpform.get('lastName')?.touched}" />
+                      <label class="form-label" for="lastName">Last Name</label>
+                      <div *ngIf="signUpform.get('lastName')?.invalid && signUpform.get('lastName')?.touched" class="invalid-feedback">
+                        Last name is required.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="userName" class="form-control" formControlName="userName" [ngClass]="{'is-invalid': signUpform.get('userName')?.invalid && signUpform.get('userName')?.touched}" />
+                      <label class="form-label" for="userName">User Name</label>
+                      <div *ngIf="signUpform.get('userName')?.invalid && signUpform.get('userName')?.touched" class="invalid-feedback">
+                        User name is required.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-phone fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="phoneNumber" class="form-control" formControlName="phoneNumber" [ngClass]="{'is-invalid': signUpform.get('phoneNumber')?.invalid && signUpform.get('phoneNumber')?.touched}" />
+                      <label class="form-label" for="phoneNumber">Phone Number</label>
+                      <div *ngIf="signUpform.get('phoneNumber')?.invalid && signUpform.get('phoneNumber')?.touched" class="invalid-feedback">
+                        Enter a valid phone number.
+                      </div>
+                    </div>
+                  </div>
+
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="email" id="form3Example3c" class="form-control" [(ngModel)]="user.email" name="email" />
-                      <label class="form-label" for="form3Example3c">Your Email</label>
+                      <input type="email" id="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid': signUpform.get('email')?.invalid && signUpform.get('email')?.touched}" />
+                      <label class="form-label" for="email">Email</label>
+                      <div *ngIf="signUpform.get('email')?.invalid && signUpform.get('email')?.touched" class="invalid-feedback">
+                        Enter a valid email.
+                      </div>
                     </div>
                   </div>
+
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" class="form-control" [(ngModel)]="user.password" name="password" />
-                      <label class="form-label" for="form3Example4c">Password</label>
+                      <input type="password" id="password" class="form-control" formControlName="password" [ngClass]="{'is-invalid': signUpform.get('password')?.invalid && signUpform.get('password')?.touched}" />
+                      <label class="form-label" for="password">Password</label>
+                      <div *ngIf="signUpform.get('password')?.invalid && signUpform.get('password')?.touched" class="invalid-feedback">
+                        Password does not meet the required criteria.
+                      </div>
                     </div>
                   </div>
+
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" class="form-control" [(ngModel)]="user.confirmPassword" name="confirmPassword" />
-                      <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                      <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword" [ngClass]="{'is-invalid': signUpform.get('confirmPassword')?.invalid && signUpform.get('confirmPassword')?.touched}" />
+                      <label class="form-label" for="confirmPassword">Repeat your password</label>
+                      <div *ngIf="signUpform.get('confirmPassword')?.invalid && signUpform.get('confirmPassword')?.touched" class="invalid-feedback">
+                        Please confirm your password.
+                      </div>
                     </div>
                   </div>
+
                   <div class="form-check d-flex justify-content-center mb-5">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
-                    <label class="form-check-label" for="form2Example3">
-                      I agree all statements in <a href="#!">Terms of service</a>
+                    <input class="form-check-input me-2" type="checkbox" value="" id="terms" />
+                    <label class="form-check-label" for="terms">
+                      I agree to all statements in <a href="#!">Terms of service</a>
                     </label>
                   </div>
+
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="button" class="btn btn-primary btn-lg" (click)="register()">Register</button>
+                    <button type="submit" class="btn btn-primary btn-lg">Register</button>
                   </div>
                 </form>
-                <div class="d-flex justify-content-center">
-                  <p class="mb-0">Already have an account? <a routerLink="/login">Log in</a></p>
-                </div>
               </div>
-              <div id="animation-container"></div>
-              <div class="col-md-12 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
                   class="img-fluid" alt="Sample image">
-                <!-- <img src="assets/images/signup.gif"
-                  class="img-fluid custom-gif" alt="Sample image"> -->
               </div>
             </div>
           </div>

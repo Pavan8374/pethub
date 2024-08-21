@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">🐾 Virtual Pet Sanctuary</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="btn btn-primary" href="#" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Home</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/adoption-center" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Adoption Center</a>
+            </li>
+            <li class="nav-item" *ngIf="isLoggedIn()">
+                <a routerLink="/my-pets" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">My Pets</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <button id="theme-toggle" (click)="toggleTheme()" class="btn btn-secondary">
+                    <i [ngClass]="{'bi-sun-fill': isDarkMode, 'bi-moon-fill': !isDarkMode}"></i>
+                </button>
+            </li>
+            <li class="nav-item" *ngIf="!isLoggedIn()">
+                <a routerLink="/sign-up" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Sign Up</a>
+            </li>
+            <li class="nav-item" *ngIf="!isLoggedIn()">
+                <a routerLink="/login" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Log in</a>
+            </li>
+            <li class="nav-item" *ngIf="isLoggedIn()">
+                <button (click)="logout()" class="btn btn-danger" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Logout</button>
+            </li>
+        </ul>
+    </div>
+</nav>
