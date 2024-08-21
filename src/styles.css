@@ -1,81 +1,78 @@
-/* Night sky background */
-.night-sky {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(125deg, #000033, #000066);
-  overflow: hidden;
-  z-index: -1; /* Ensure the background stays behind other elements */
-}
-
-/* Toaster CSS */
-.toast-container {
-  z-index: 1000; /* Ensure toasts appear above other elements */
-}
-
 .custom-toast {
-  color: #fff;
-  border-radius: 25px; /* Rounded corners */
-  padding: 20px; /* Added padding for better spacing */
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Stronger shadow for a more prominent look */
-  animation: slideInRight 0.5s, fadeOut 2.5s 3s forwards;
-  z-index: 1001; /* Ensuring it's on top of most other elements */
-  position: relative;
-  font-size: 1.2rem; /* Adjusted font size for better readability */
-  line-height: 1.6; /* Improved line spacing for better text visibility */
-  background-size: cover; /* Ensure background covers entire area */
-  overflow: hidden; /* Hide overflow to prevent content from spilling out */
+  width: 350px; /* Fixed width for consistent sizing */
+  min-height: 80px; /* Minimum height */
+  padding: 15px; /* More padding for better aesthetics */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  color: #fff; /* Default text color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  display: flex; /* Flex for better layout */
+  align-items: center; /* Center vertically */
 }
 
-/* Error Toast */
-.toast-error {
-  background-image: linear-gradient(135deg, #f1071b, #ff9271); /* Red to Orange gradient */
+.custom-toast .message-container {
+  display: flex; /* Flex for layout */
+  align-items: center; /* Align items in the center vertically */
+  overflow: hidden; /* Ensure long text doesn’t overflow */
 }
 
-/* Success Toast */
-.toast-success {
-  background-image: linear-gradient(135deg, #00c853, #b2ff59af); /* Green to Light Green gradient */
+.custom-toast .message-container span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Ellipsis for long text */
 }
 
-/* Info Toast */
-.toast-info {
-  background-image: linear-gradient(135deg, #2196f3, #083c53); /* Blue gradient */
+/* Success toast with gradient */
+.custom-toast.toast-success {
+  background: linear-gradient(to right, #28a745, #218838);
 }
 
-/* Warning Toast */
-.toast-warning {
-  background-image: linear-gradient(135deg, #ff9800, #ffc107); /* Orange gradient */
+/* Error toast with gradient */
+.custom-toast.toast-error {
+  background: linear-gradient(to right, #dc3545, #d4731e);
 }
 
-@keyframes slideInRight {
-  from {  
-      transform: translateX(100%);
-      opacity: 0;
-  }
-  to {
-      transform: translateX(0);
-      opacity: 1;
-  }
+/* Info toast with gradient */
+.custom-toast.toast-info {
+  background: linear-gradient(to right, #17a2b8, #138496);
 }
 
-@keyframes fadeOut {
-  to {
-      opacity: 0;
-      transform: translateX(100%);
-  }
+/* Warning toast with gradient */
+.custom-toast.toast-warning {
+  background: linear-gradient(to right, #ffc107, #e0a800);
+}
+/* Add icons */
+.custom-toast:before {
+  content: "";
+  display: inline-block;
+  width: 24px; /* Icon width */
+  height: 24px; /* Icon height */
+  margin-right: 10px; /* Space between icon and text */
+  background-size: cover; /* To cover background */
 }
 
-.toast-top-right {
-  top: 20px;
-  right: 20px;
-  position: fixed;
+/* Specific icons */
+.custom-toast.toast-success:before {
+  background-image: url('assets/images/check.png'); /* Path to success icon */
 }
 
-.toast-progress {
-  background: linear-gradient(90deg, #ff007f, #00f);
-  height: 5px;
-  border-radius: 0 0 25px 25px;
+.custom-toast.toast-error:before {
+  background-image: url('assets/images/close.png'); /* Path to error icon */
 }
 
+.custom-toast.toast-info:before {
+  background-image: url('assets/images/information.png'); /* Path to info icon */
+}
+
+.custom-toast.toast-warning:before {
+  background-image: url('assets/images/caution.png'); /* Path to warning icon */
+}
+
+/* Transition effect */
+.custom-toast {
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+}
+
+.custom-toast:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}

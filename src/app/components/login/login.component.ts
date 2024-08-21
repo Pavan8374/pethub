@@ -38,21 +38,6 @@ export class LoginComponent {
     this.createLoginForm()
   }
 
-  onClickLogIn(){
-
-    this.users = this.userService.getUsers();
-    let user = this.users.find(u => u.email === this.user.email);
-    if(user?.password == this.user.password && user != null){
-      this.toastr.showSuccess("Log in",'User login successfully');
-      this.router.navigate(['/home']);
-    }
-
-    else {
-      this.toastr.showError("Error",'Entered email or password incorrect');
-    }
-
-  }
-
   onLoginClick(): void {
     debugger;
     if (this.logInForm.valid) {
@@ -63,17 +48,17 @@ export class LoginComponent {
             //this.loading = false;
             this.authService.setValueInStorage(APP_AUTH_CONST, res);
             //this.dialog.closeAll();
-            this.toastr.showSuccess("Success", LogInMessage);
+            this.toastr.showSuccess("", LogInMessage);
             this.router.navigate(['/home']);
             this.logInForm.reset();
           } else {
             //this.loading = false;
-            this.toastr.showError("Error", NullResponseErrorMessage);
+            this.toastr.showError("", NullResponseErrorMessage);
           }
         },
         error: (err: any) => {
           //this.loading = false;
-          this.toastr.showError("Error", err.error.message);
+          this.toastr.showError("", err.error.message);
         }
       })
     }
