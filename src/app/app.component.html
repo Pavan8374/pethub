@@ -4,35 +4,5 @@
     <path fill="#00bbf9" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
     <path fill="#00f5d4" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
 </svg>
-
-<nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="#">🐾 Virtual Pet Sanctuary</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-   
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a routerLink="/adoption-center" class="btn btn-adopt">Adoption Center</a>
-            </li>
-            <li class="nav-item">
-                <a routerLink="/my-pets" class="btn btn-my-pets">My Pets</a>
-            </li>
-            <li class="nav-item">
-                <a routerLink="/sign-up" class="btn btn-sign-up">Sign Up</a>
-            </li>
-            <li class="nav-item">
-                <a routerLink="/login" class="btn btn-login">Log in</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
+<app-navbar></app-navbar>
 <router-outlet></router-outlet>
