@@ -4,6 +4,8 @@ import { AdoptionCenterComponent } from './components/adoption-center/adoption-c
 import { MyPetsComponent } from './components/my-pets/my-pets.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { PetManagementComponent } from './components/admin/pet-management/pet-management.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -12,6 +14,8 @@ export const routes: Routes = [
   { path: 'my-pets', component: MyPetsComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'admin/dashboard', component: DashboardComponent },
+  { path: 'admin/pet-management', component: PetManagementComponent },
 
 
   { path: '**', redirectTo: '/home' } // Redirect to home for any unknown routes

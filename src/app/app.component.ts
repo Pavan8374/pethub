@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -14,4 +14,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 })
 export class AppComponent {
   title = 'Virtual-Pet-Sanctuary';
+  constructor(private renderer: Renderer2) { }
+  ngOnInit(): void {
+    const theme = localStorage.getItem('theme') || 'light';
+    this.renderer.setAttribute(document.body, 'data-theme', theme);
+  }
 }

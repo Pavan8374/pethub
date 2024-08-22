@@ -32,6 +32,12 @@ export class SignUpComponent {
   }
 
   onSignUpClick(): void {
+    if (this.signUpform.invalid) {
+      this.toastr.showError("", "Please fill required fields.");
+      this.signUpform.markAllAsTouched(); // This will mark all controls as touched to trigger validation messages
+      return;
+    }
+    
     this.signUpform?.markAllAsTouched();
     if (this.signUpform?.valid) {
       const signUp = this.signUpform.getRawValue() as SignUp;

@@ -1,0 +1,15 @@
+<div class="pets-management-container">
+    <div class="header">
+      <h1>Pet Management</h1>
+      <button class="add-pet-button" (click)="addPet()">+ Add Pet</button>
+    </div>
+  
+    <div class="pets-list">
+      <div class="pet-card" *ngFor="let pet of pets">
+        <h2>{{ pet.name }}</h2>
+        <p>Type: {{ pet.type }}</p>
+        <p>Age: {{ pet.age }} years</p>
+      </div>
+    </div>
+  </div>
+  

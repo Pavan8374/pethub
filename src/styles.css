@@ -1,70 +1,73 @@
 .custom-toast {
-  width: 350px; /* Fixed width for consistent sizing */
+  width: 280px; /* Reduced width */
   min-height: 80px; /* Minimum height */
   padding: 15px; /* More padding for better aesthetics */
   border-radius: 10px; /* Rounded corners */
   font-size: 16px; /* Font size */
+  font-family: 'Poppins', sans-serif; /* Appealing font */
   color: #fff; /* Default text color */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
   display: flex; /* Flex for better layout */
   align-items: center; /* Center vertically */
+  justify-content: space-between; /* Space between message and icon */
 }
 
 .custom-toast .message-container {
-  display: flex; /* Flex for layout */
+  display: inline-flex; /* Use inline-flex to shrink-wrap the content */
   align-items: center; /* Align items in the center vertically */
   overflow: hidden; /* Ensure long text doesn’t overflow */
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 .custom-toast .message-container span {
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; /* Ellipsis for long text */
 }
 
 /* Success toast with gradient */
 .custom-toast.toast-success {
-  background: linear-gradient(to right, #28a745, #218838);
+  background: linear-gradient(to right, #52d19c, #218838);
 }
 
 /* Error toast with gradient */
 .custom-toast.toast-error {
-  background: linear-gradient(to right, #dc3545, #d4731e);
+  background: linear-gradient(to right, #fa4a15, #e99247);
 }
 
 /* Info toast with gradient */
 .custom-toast.toast-info {
-  background: linear-gradient(to right, #17a2b8, #138496);
+  background: linear-gradient(to right, #32d3df, #a8e9e9);
 }
 
 /* Warning toast with gradient */
 .custom-toast.toast-warning {
   background: linear-gradient(to right, #ffc107, #e0a800);
 }
-/* Add icons */
-.custom-toast:before {
+
+/* Add icons after message */
+.custom-toast:after {
   content: "";
   display: inline-block;
   width: 24px; /* Icon width */
   height: 24px; /* Icon height */
-  margin-right: 10px; /* Space between icon and text */
+  margin-left: 10px; /* Space between message and icon */
   background-size: cover; /* To cover background */
 }
 
 /* Specific icons */
-.custom-toast.toast-success:before {
+.custom-toast.toast-success:after {
   background-image: url('assets/images/check.png'); /* Path to success icon */
 }
 
-.custom-toast.toast-error:before {
+.custom-toast.toast-error:after {
   background-image: url('assets/images/close.png'); /* Path to error icon */
 }
 
-.custom-toast.toast-info:before {
+.custom-toast.toast-info:after {
   background-image: url('assets/images/information.png'); /* Path to info icon */
 }
 
-.custom-toast.toast-warning:before {
+.custom-toast.toast-warning:after {
   background-image: url('assets/images/caution.png'); /* Path to warning icon */
 }
 

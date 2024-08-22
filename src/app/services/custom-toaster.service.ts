@@ -16,8 +16,7 @@ export class CustomToasterService {
       toastClass: 'custom-toast toast-success',
       tapToDismiss: false
     });
-
-    this.addClickHandler(toast);
+    this.addCloseOnClick(toast);
   }
 
   showError(message: string, title: string) {
@@ -30,7 +29,7 @@ export class CustomToasterService {
       tapToDismiss: false
     });
 
-    this.addClickHandler(toast);
+    this.addCloseOnClick(toast);
   }
 
   showInfo(message: string, title: string) {
@@ -43,7 +42,7 @@ export class CustomToasterService {
       tapToDismiss: false
     });
 
-    this.addClickHandler(toast);
+    this.addCloseOnClick(toast);
   }
 
   showWarning(message: string, title: string) {
@@ -56,16 +55,11 @@ export class CustomToasterService {
       tapToDismiss: false
     });
 
-    this.addClickHandler(toast);
+    this.addCloseOnClick(toast);
   }
 
-  private addClickHandler(toast: ActiveToast<any>) { // Use ActiveToast type here
-    toast.onTap.subscribe(() => {
-      this.clearAllNotifications();
-    });
-  }
-
-  clearAllNotifications() {
-    this.toastr.clear(); // Clears all toasts
+  private addCloseOnClick(toast: ActiveToast<any>) {
+    debugger;
+    toast.onTap.subscribe(() => this.toastr.clear(toast.toastId));
   }
 }

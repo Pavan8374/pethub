@@ -39,28 +39,28 @@ export class LoginComponent {
   }
 
   onLoginClick(): void {
-    debugger;
+    if (this.logInForm.invalid) {
+      this.toastr.showError("", "Please fill required fields.");
+      this.logInForm.markAllAsTouched(); // This will mark all controls as touched to trigger validation messages
+      return;
+    }
+  
     if (this.logInForm.valid) {
-      //this.loading = true
       this.authService.logIn(this.logInForm.value).subscribe({
         next: (res: any) => {
           if (res) {
-            //this.loading = false;
             this.authService.setValueInStorage(APP_AUTH_CONST, res);
-            //this.dialog.closeAll();
             this.toastr.showSuccess("", LogInMessage);
             this.router.navigate(['/home']);
             this.logInForm.reset();
           } else {
-            //this.loading = false;
             this.toastr.showError("", NullResponseErrorMessage);
           }
         },
         error: (err: any) => {
-          //this.loading = false;
           this.toastr.showError("", err.error.message);
         }
-      })
+      });
     }
   }
 
