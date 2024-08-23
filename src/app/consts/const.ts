@@ -12,3 +12,12 @@ export class authentication {
     // public static verifyOTP:string = "User/verifyOTP"
     // public static resetPassword:string = "User/resetPassword"
   }
+
+  export class petManagement{
+
+    public static addPet = 'Pet/addPet'
+    public static updatePet = 'Pet/updatePet/'
+    public static removePet = 'Pet/removePet/'
+    public static adoptPet = 'Pet/adoptPet/'
+    public static getPetsByFilter = 'Pet/getPetsByFilter'
+  }

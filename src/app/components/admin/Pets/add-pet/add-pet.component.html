@@ -1,0 +1,48 @@
+<div class="container">
+    <h1 class="title">Add a New Pet</h1>
+    <form [formGroup]="addPetForm" (ngSubmit)="onAddPetSubmit()" class="form-container">
+      <div class="form-group" [ngClass]="{'form-group-error': addPetForm.get('petName')?.invalid && addPetForm.get('petName')?.touched}">
+        <label for="petName" class="form-label">Pet Name</label>
+        <input id="petName" formControlName="petName" type="text" class="form-control" placeholder="Enter pet name" />
+        <div *ngIf="addPetForm.get('petName')?.invalid && addPetForm.get('petName')?.touched" class="error-message">Pet Name is required</div>
+      </div>
+      <div class="form-group" [ngClass]="{'form-group-error': addPetForm.get('species')?.invalid && addPetForm.get('species')?.touched}">
+        <label for="species" class="form-label">Species</label>
+        <input id="species" formControlName="species" type="text" class="form-control" placeholder="Enter species" />
+        <div *ngIf="addPetForm.get('species')?.invalid && addPetForm.get('species')?.touched" class="error-message">Species is required</div>
+      </div>
+      <div class="form-group" [ngClass]="{'form-group-error': addPetForm.get('breed')?.invalid && addPetForm.get('breed')?.touched}">
+        <label for="breed" class="form-label">Breed</label>
+        <input id="breed" formControlName="breed" type="text" class="form-control" placeholder="Enter breed" />
+        <div *ngIf="addPetForm.get('breed')?.invalid && addPetForm.get('breed')?.touched" class="error-message">Breed is required</div>
+      </div>
+      <div class="form-group" [ngClass]="{'form-group-error': addPetForm.get('gender')?.invalid && addPetForm.get('gender')?.touched}">
+        <label for="gender" class="form-label">Gender</label>
+        <input id="gender" formControlName="gender" type="text" class="form-control" placeholder="Enter gender" />
+        <div *ngIf="addPetForm.get('gender')?.invalid && addPetForm.get('gender')?.touched" class="error-message">Gender is required</div>
+      </div>
+      <div class="form-group" [ngClass]="{'form-group-error': addPetForm.get('color')?.invalid && addPetForm.get('color')?.touched}">
+        <label for="color" class="form-label">Color</label>
+        <input id="color" formControlName="color" type="text" class="form-control" placeholder="Enter color" />
+        <div *ngIf="addPetForm.get('color')?.invalid && addPetForm.get('color')?.touched" class="error-message">Color is required</div>
+      </div>
+      <div class="form-group">
+        <label for="weight" class="form-label">Weight</label>
+        <input id="weight" formControlName="weight" type="number" class="form-control" placeholder="Enter weight" />
+      </div>
+      <div class="form-group">
+        <label for="age" class="form-label">Age</label>
+        <input id="age" formControlName="age" type="number" class="form-control" placeholder="Enter age" />
+      </div>
+      <div class="form-group">
+        <label for="microchipNumber" class="form-label">Microchip Number</label>
+        <input id="microchipNumber" formControlName="microchipNumber" type="text" class="form-control" placeholder="Enter microchip number" />
+      </div>
+      <div class="form-group">
+        <label for="dateofBirth" class="form-label">Date of Birth</label>
+        <input id="dateofBirth" formControlName="dateofBirth" type="date" class="form-control" />
+      </div>
+      <button type="submit" class="submit-button" [ngClass]="{'disabled': addPetForm.invalid}">Add Pet</button>
+    </form>
+  </div>
+  

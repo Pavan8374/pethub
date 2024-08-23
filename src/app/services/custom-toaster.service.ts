@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { ToastrService, ActiveToast } from 'ngx-toastr'; // Import ActiveToast type
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomToasterService {
-  constructor(private toastr: ToastrService) {}
+  private toastr = inject(ToastrService);
 
   showSuccess(message: string, title: string) {
     const toast = this.toastr.success(message, title, {

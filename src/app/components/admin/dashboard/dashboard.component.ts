@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,10 +8,13 @@ import { Router } from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent {
-  constructor(private router: Router) {}
 
+@Injectable({
+  providedIn: 'root',
+})
+export class DashboardComponent {
+  private router = inject(Router);
   navigateToPetsManagement() {
-    this.router.navigate(['admin/pet-management']); // Adjust the route path as per your routing configuration
+    this.router.navigate(['admin/pets']); // Adjust the route path as per your routing configuration
   }
 }

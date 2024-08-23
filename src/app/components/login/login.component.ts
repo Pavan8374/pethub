@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, FormsModule, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { User } from '../../models/Users/user.model';
@@ -21,15 +21,10 @@ import { APP_AUTH_CONST, LogInMessage, NullResponseErrorMessage } from '../../co
 
 
 export class LoginComponent {
-  user: User = new User;
-  users: User[] = [];
   logInForm!: FormGroup;
-
-  constructor(private userService: UserService,
-    private router: Router,
-    private toastr: CustomToasterService,
-    private authService: AuthService
-  ) {}
+  private router = inject(Router);
+  private toastr = inject(CustomToasterService);
+  private authService =inject(AuthService);
 
   ngOnInit(): void {
     if (this.authService.userIsLogin()) {
