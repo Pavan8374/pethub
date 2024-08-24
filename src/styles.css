@@ -10,6 +10,7 @@
   display: flex; /* Flex for better layout */
   align-items: center; /* Center vertically */
   justify-content: space-between; /* Space between message and icon */
+  margin-top: 10px !important;
 }
 
 .custom-toast .message-container {

@@ -5,7 +5,7 @@ petName: string,
   breed: string,
   gender: number,
   color: string,
-  weight: "string",
+  weight: string,
   age: string,
   microchipNumber: string,
   dateofBirth: Date;

@@ -21,22 +21,23 @@ import { Router } from '@angular/router';
 export class AddPetComponent {
   addPetForm!: FormGroup;
 
-  petManagement = inject(petManagement);
   petService = inject(PetManagementService);
   private toastr = inject(CustomToasterService);
   private router = inject(Router);
   
   ngOnInit(): void {
     this.createAddPetForm();
+    petManagement.addPet
   }
 
   onAddPetSubmit(): void {
+    debugger;
     if (this.addPetForm.invalid) {
       this.toastr.showError("", "Please fill required fields.");
       this.addPetForm.markAllAsTouched(); // This will mark all controls as touched to trigger validation messages
       return;
     }
-  
+  try{
     if (this.addPetForm.valid) {
       this.petService.addPet(this.addPetForm.value).subscribe({
         next: (res: any) => {
@@ -54,6 +55,13 @@ export class AddPetComponent {
       });
     }
   }
+  catch(e) {
+    this.toastr.showError("", "Catched an unknown error!");
+    console.log(e); 
+  }
+    
+  }
+  
   private createAddPetForm(): void {
     this.addPetForm = new FormGroup({
       petName: new FormControl('', Validators.required),

@@ -14,7 +14,7 @@ export class CustomToasterService {
       progressAnimation: 'decreasing',
       positionClass: 'toast-top-right',
       toastClass: 'custom-toast toast-success',
-      tapToDismiss: false
+      tapToDismiss: false,
     });
     this.addCloseOnClick(toast);
   }
@@ -26,7 +26,7 @@ export class CustomToasterService {
       progressAnimation: 'decreasing',
       positionClass: 'toast-top-right',
       toastClass: 'custom-toast toast-error',
-      tapToDismiss: false
+      tapToDismiss: false,
     });
 
     this.addCloseOnClick(toast);
