@@ -1,7 +1,7 @@
 .pets-management-container {
   padding: 20px;
-  background-color: #e0f7fa; /* Soft blue background */
-  background-image: url('https://www.transparenttextures.com/patterns/doodles.png'); /* Fun doodles background */
+  background-color: #e0f7fa;
+  background-image: url('https://www.transparenttextures.com/patterns/doodles.png');
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   font-family: 'Comic Sans MS', cursive, sans-serif;
@@ -14,53 +14,122 @@
   margin-bottom: 20px;
 }
 
+h1 {
+  font-size: 2.5em;
+  color: #ff69b4;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .add-pet-button {
   padding: 10px 20px;
-  background-color: #ff69b4; /* Bright pink */
+  background-color: #ff69b4;
   border: none;
   border-radius: 20px;
   color: white;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
-  transition: background-color 0.2s, transform 0.2s;
+  transition: all 0.2s;
 }
 
 .add-pet-button:hover {
-  background-color: #ff1493; /* Darker pink on hover */
-  transform: translateY(-2px);
+  background-color: #ff1493;
+  transform: translateY(-2px) scale(1.05);
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-input, .search-select {
+  padding: 8px;
+  border: 2px solid #ff69b4;
+  border-radius: 10px;
+  font-family: inherit;
+}
+
+.adopted-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.search-button {
+  padding: 8px 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-button:hover {
+  background-color: #45a049;
+}
+
+.table-container {
+  position: relative;
+  min-height: 200px;
+}
+
+.loading::after {
+  content: "🐾 Fetching pets...";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5em;
+  color: #ff69b4;
 }
 
 .pets-table {
   width: 100%;
-  overflow-x: auto;
-  margin-top: 20px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  margin-bottom: 20px;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
+.pets-table th, .pets-table td {
   padding: 15px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
 }
 
-th {
-  background-color: #ff69b4; /* Bright pink for header */
+.pets-table th {
+  background-color: #ff69b4;
   color: white;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-td {
-  background-color: #ffe4e1; /* Light pink background */
+.pet-row {
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
 }
 
-.edit-button, .remove-button {
-  padding: 8px 12px;
+.pet-row:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.color-dot {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.edit-button, .delete-button {
+  padding: 5px 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -68,20 +137,48 @@ td {
 }
 
 .edit-button {
-  background-color: #4caf50; /* Green */
-  color: white;
+  background-color: #ffc107;
 }
 
 .edit-button:hover {
-  background-color: #45a049; /* Darker green on hover */
+  background-color: #ffb300;
 }
 
-.remove-button {
-  background-color: #f44336; /* Red */
+.delete-button {
+  background-color: #f44336;
   color: white;
-  margin-left: 10px;
 }
 
-.remove-button:hover {
-  background-color: #e53935; /* Darker red on hover */
+.delete-button:hover {
+  background-color: #d32f2f;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-button {
+  padding: 8px 15px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.page-button:hover:not(:disabled) {
+  background-color: #1976d2;
+}
+
+.page-button:disabled {
+  background-color: #bdbdbd;
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-weight: bold;
+  color: #333;
 }

@@ -27,9 +27,9 @@
       <label for="gender" class="form-label">Gender</label>
       <select id="gender" formControlName="gender" class="form-control">
         <option value="" disabled selected>Please select from dropdown</option>
-        <option [value]="1">Male</option>
-        <option [value]="2">Female</option>
-        <option [value]="3">Other</option>
+        <option [ngValue]="1">Male</option>
+        <option [ngValue]="2">Female</option>
+        <option [ngValue]="3">Other</option>
       </select>
       <div *ngIf="addPetForm.get('gender')?.invalid && addPetForm.get('gender')?.touched" class="error-message">
         Gender is required
@@ -60,6 +60,9 @@
       <label for="dateofBirth" class="form-label">Date of Birth</label>
       <input id="dateofBirth" formControlName="dateofBirth" type="date" class="form-control" />
     </div>
-    <button type="submit" class="submit-button" [ngClass]="{'disabled': addPetForm.invalid}">Add Pet</button>
+    <div class="button-group">
+      <button type="submit" class="submit-button" [ngClass]="{'disabled': addPetForm.invalid}">Add Pet</button>
+      <button type="button" class="cancel-button" (click)="onCancel()">Cancel</button>
+    </div>
   </form>
 </div>

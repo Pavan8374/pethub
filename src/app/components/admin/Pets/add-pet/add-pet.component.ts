@@ -61,7 +61,12 @@ export class AddPetComponent {
   }
     
   }
-  
+
+  onCancel(): void {
+    this.router.navigate(['/admin/pets']); // Adjust this as per your routing setup
+    this.addPetForm.reset();
+  }
+
   private createAddPetForm(): void {
     this.addPetForm = new FormGroup({
       petName: new FormControl('', Validators.required),

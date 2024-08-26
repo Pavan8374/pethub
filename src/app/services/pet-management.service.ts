@@ -54,6 +54,17 @@ export class PetManagementService {
                 })
             );
     }
+
+    getPetsByFilter(data: any): Observable<any> {
+
+        return this.http
+        .get<any>(`${Global.WebUrl}${petManagement.getPetsByFilter}`, data)
+        .pipe(
+            tap((res: any) => {
+                return res;
+            })
+        );
+    }
     
 
 }

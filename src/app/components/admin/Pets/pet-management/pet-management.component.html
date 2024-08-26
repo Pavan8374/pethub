@@ -1,7 +1,60 @@
 <div class="pets-management-container">
   <div class="header">
-    <h1>Pet Management</h1>
-    <button class="add-pet-button" (click)="onAddPet()">+ Add Pet</button>
+    <h1>🐾 Pawsome Pet Management 🐾</h1>
+    <button class="add-pet-button" (click)="onAddPet()">+ Add Furry Friend</button>
   </div>
 
-  
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchString" placeholder="Search..." class="search-input" />
+    <select [(ngModel)]="searchField" class="search-select">
+      <option value="name">Name</option>
+      <option value="species">Species</option>
+      <option value="breed">Breed</option>
+    </select>
+    <label class="adopted-checkbox">
+      <input type="checkbox" [(ngModel)]="isAdopted" /> Adopted
+    </label>
+    <button (click)="onSearch()" class="search-button">🔍 Search</button>
+  </div>
+
+  <div class="table-container" [class.loading]="isLoading">
+    <table class="pets-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Species</th>
+          <th>Breed</th>
+          <th>Gender</th>
+          <th>Color</th>
+          <th>Weight</th>
+          <th>Age</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pet of pets" class="pet-row">
+          <td>{{ pet.petName }}</td>
+          <td>{{ pet.species }}</td>
+          <td>{{ pet.breed }}</td>
+          <td>{{ getGenderIcon(pet.gender) }} {{ pet.gender }}</td>
+          <td>
+            <span class="color-dot" [style.background-color]="pet.color"></span>
+            {{ pet.color }}
+          </td>
+          <td>{{ pet.weight }} kg</td>
+          <td>{{ pet.age }} years</td>
+          <td class="action-buttons">
+            <button (click)="onUpdatePet(pet.id)" class="edit-button">✏️ Edit</button>
+            <button (click)="onRemovePet(pet.id)" class="delete-button">🗑️ Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination">
+    <button (click)="onPageChange(pageNumber - 1)" [disabled]="pageNumber === 1" class="page-button">← Previous</button>
+    <span class="page-info">Page {{ pageNumber }} of {{ totalPages }}</span>
+    <button (click)="onPageChange(pageNumber + 1)" [disabled]="pageNumber === totalPages" class="page-button">Next →</button>
+  </div>
+</div>

@@ -59,7 +59,6 @@ export class CustomToasterService {
   }
 
   private addCloseOnClick(toast: ActiveToast<any>) {
-    debugger;
     toast.onTap.subscribe(() => this.toastr.clear(toast.toastId));
   }
 }

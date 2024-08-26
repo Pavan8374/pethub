@@ -1,11 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, FormsModule, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { User } from '../../models/Users/user.model';
-import { UserService } from '../../services/user.service';
 import { CustomToasterService } from '../../services/custom-toaster.service';
 import { CommonModule } from '@angular/common';
-import { LogIn } from '../../models/Auth/LogIn';
 import { AuthService } from '../../services/auth.service';
 import { APP_AUTH_CONST, LogInMessage, NullResponseErrorMessage } from '../../consts/message';
 
@@ -44,9 +41,16 @@ export class LoginComponent {
       this.authService.logIn(this.logInForm.value).subscribe({
         next: (res: any) => {
           if (res) {
-            this.authService.setValueInStorage(APP_AUTH_CONST, res);
+            const token = res.token;
+            this.authService.setValueInStorage(APP_AUTH_CONST, token);
             this.toastr.showSuccess("", LogInMessage);
-            this.router.navigate(['/home']);
+
+            // Decode the token and check the role
+            if (this.authService.hasRole(token, 'Admin')) {
+              this.router.navigate(['/admin/dashboard']);
+            } else {
+              this.router.navigate(['/home']);
+            }
             this.logInForm.reset();
           } else {
             this.toastr.showError("", NullResponseErrorMessage);
