@@ -9,6 +9,7 @@ import { PetManagementComponent } from './components/admin/Pets/pet-management/p
 import { AddPetComponent } from './components/admin/Pets/add-pet/add-pet.component';
 import { inject } from '@angular/core';
 import { AuthService } from './services/auth.service';
+import { EditPetComponent } from './components/admin/Pets/edit-pet/edit-pet.component';
 
 
 
@@ -45,7 +46,10 @@ export const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'pets', component: PetManagementComponent },
-      { path: 'pets/add', component: AddPetComponent },
+      { path: 'pets/add', component: AddPetComponent },{
+        path: 'pets/edit/:id',
+        component: EditPetComponent
+      },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },

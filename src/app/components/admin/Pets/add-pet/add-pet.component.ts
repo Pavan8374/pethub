@@ -31,7 +31,6 @@ export class AddPetComponent {
   }
 
   onAddPetSubmit(): void {
-    debugger;
     if (this.addPetForm.invalid) {
       this.toastr.showError("", "Please fill required fields.");
       this.addPetForm.markAllAsTouched(); // This will mark all controls as touched to trigger validation messages

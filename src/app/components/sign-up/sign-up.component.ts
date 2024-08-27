@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CustomToasterService } from '../../services/custom-toaster.service';
@@ -7,19 +7,22 @@ import { SignUp } from '../../models/Auth/SignUp';
 import { APP_AUTH_CONST, NullResponseErrorMessage, SingUpMessage } from '../../consts/message';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, MatStepperModule],
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
-export class SignUpComponent {
+export class SignUpComponent implements OnInit {
   signUpform!: FormGroup;
+  @ViewChild('stepper') private stepper!: MatStepper;
 
   constructor(
-    private router: Router,
+    public router: Router,
     private toastr: CustomToasterService,
     private authService: AuthService
   ) {}
@@ -29,6 +32,18 @@ export class SignUpComponent {
       this.router.navigate(['/']);
     }
     this.createSignUpForm();
+  }
+
+  onNextClick(): void {
+    if (this.stepper) {
+      this.stepper.next();
+    }
+  }
+
+  onBackClick(): void {
+    if (this.stepper) {
+      this.stepper.previous();
+    }
   }
 
   onSignUpClick(): void {

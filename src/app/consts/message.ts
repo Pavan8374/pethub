@@ -7,4 +7,10 @@ export const NullResponseErrorMessage  = "Something went wrong!"
 
 //Pets
 export const AddPetMessage  = "Pet added in the marketplace!"
+export const EditPetMessage  = "Pet details updated successfully!"
+export const RemovePetMessage  = "Pet removed successfully!"
+
+//
+export const PageSize = 15
+
 

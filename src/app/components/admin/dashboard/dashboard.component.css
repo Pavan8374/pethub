@@ -3,8 +3,8 @@
     justify-content: space-around;
     align-items: center;
     height: 100vh;
-    background-color: #f0f8ff; /* Light, fun background color */
-    background-image: url('https://www.transparenttextures.com/patterns/food.png'); /* Fun background texture */
+    /* background-color: #f0f8ff;  */
+    /* background-image: url('https://www.transparenttextures.com/patterns/food.png');  */
   }
   
   .card {

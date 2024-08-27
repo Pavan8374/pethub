@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
   private authService = inject(AuthService);
 
   ngOnInit(): void {
-    debugger
     this.checkUserRoleAndRedirect();
   }
   private checkUserRoleAndRedirect(): void {
@@ -29,10 +28,10 @@ export class AppComponent implements OnInit {
     } 
     else {
       const role = this.authService.getRole();
+      this.router.navigate(['/home']);
       if (role === 'Admin') {
         this.router.navigate(['/admin/dashboard']);
       } 
-      this.router.navigate(['/home']);
     }
   }
 }

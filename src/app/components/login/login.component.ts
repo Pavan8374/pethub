@@ -19,7 +19,7 @@ import { APP_AUTH_CONST, LogInMessage, NullResponseErrorMessage } from '../../co
 
 export class LoginComponent {
   logInForm!: FormGroup;
-  private router = inject(Router);
+  public router = inject(Router);
   private toastr = inject(CustomToasterService);
   private authService =inject(AuthService);
 
