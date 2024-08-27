@@ -8,6 +8,7 @@ import { Global } from "../shared/global";
 import { Observable, tap } from "rxjs";
 import * as CryptoJS from 'crypto-js';
 import { LogIn } from "../models/Auth/LogIn";
+import { jwtDecode } from "jwt-decode";
 
 @Injectable({
     providedIn: 'root',
@@ -16,7 +17,8 @@ export class AuthService {
 
     private document = inject(DOCUMENT);
     private http = inject(HttpClient);
-
+    private readonly ROLE_CLAIM = 'http://schemas.microsoft.com/ws/2008/06/identity/claims/role';
+    
     getAuthToken(): string | undefined | null {
         try {
             const localStorage = this.document.defaultView?.localStorage;
@@ -25,7 +27,7 @@ export class AuthService {
             if (encryptedData) {
                 const bytes = CryptoJS.AES.decrypt(encryptedData, SecretKey);
                 const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-                token = decryptedData.token;
+                token = decryptedData;
             }
             return token;
         } catch {
@@ -61,10 +63,21 @@ export class AuthService {
             return false;
         }
     }
+
+    isAdmin(): boolean {
+        const token = this.getAuthToken();
+        if (token) {
+            if (token && this.getRole() == 'Admin') {
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
     getAuthUser(): string | undefined | null {
         const localStorage = this.document.defaultView?.localStorage;
         return localStorage?.getItem(APP_AUTH_CONST);
-      }
+    }
 
     getValueFromStorage(storageKey: string): any {
         try {
@@ -85,6 +98,56 @@ export class AuthService {
             return false;
         } catch (error) {
             return false;
+        }
+    }
+
+    decodeToken(token: string): any {
+        try {
+            return jwtDecode(token);
+        } catch (error) {
+            console.error('Failed to decode token', error);
+            return null;
+        }
+    }
+
+    // Method to check if the user has a specific role
+    hasRole(token: string, role: string): boolean {
+        const decodedToken = this.decodeToken(token);
+        const roles = decodedToken?.[this.ROLE_CLAIM] || '';
+        return roles === role;
+    }
+
+    isTokenExpired(): boolean {
+        const token = this.getAuthToken();
+        if (token) {
+            const decodedToken = this.decodeToken(token);
+            if (!decodedToken) {
+                return true;
+            }
+            const expirationTime = decodedToken.exp * 1000; // Convert to milliseconds
+            return Date.now() > expirationTime;
+        }
+        return false
+    }
+
+    getRole(): string | null {
+        const token = this.getAuthToken();
+        if (token) {
+            const decodedToken = this.decodeToken(token);
+            if (!decodedToken) {
+                return null;
+            }
+
+            return decodedToken[this.ROLE_CLAIM] || null;
+        }
+        return null;
+    }
+
+
+    clearAuthToken(): void {
+        const localStorage = this.document.defaultView?.localStorage;
+        if (localStorage) {
+            localStorage.removeItem(APP_AUTH_CONST);
         }
     }
 

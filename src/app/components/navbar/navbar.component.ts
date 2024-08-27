@@ -1,9 +1,10 @@
-import { Component, Renderer2 } from '@angular/core';
+import { ChangeDetectorRef, Component, Renderer2 } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
-import { APP_AUTH_CONST } from '../../consts/message';
+import { APP_AUTH_CONST, LogOutMessage } from '../../consts/message';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { CustomToasterService } from '../../services/custom-toaster.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,30 +17,20 @@ import { CommonModule } from '@angular/common';
 })
 export class NavbarComponent {
   isDarkMode = false;
-  constructor(private authService: AuthService, 
+
+  constructor(
+    private authService: AuthService, 
     private router: Router,
-    private renderer: Renderer2
-  ) { }
-
-
+    private renderer: Renderer2,
+    private toastr: CustomToasterService
+    ) { }
 
   ngOnInit(): void {
     this.isDarkMode = localStorage.getItem('theme') === 'dark';
-    this.updateTheme();
-
-    const navLinks = document.querySelectorAll('.nav-item a');
-    const navbarCollapse = document.getElementById('navbarSupportedContent');
-
-    navLinks.forEach(link => {
-      this.renderer.listen(link, 'click', () => {
-        if (navbarCollapse?.classList.contains('show')) {
-          this.renderer.removeClass(navbarCollapse, 'show');
-        }
-      });
-    });
   }
-  
+
   toggleTheme(): void {
+    debugger;
     this.isDarkMode = !this.isDarkMode;
     localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
     this.updateTheme();
@@ -50,14 +41,13 @@ export class NavbarComponent {
     this.renderer.setAttribute(document.body, 'data-theme', theme);
   }
 
-
   isLoggedIn(): boolean {
-      return this.authService.userIsLogin();
+    return this.authService.userIsLogin();
   }
 
   logout(): void {
-      // Clear the authentication token or perform any necessary cleanup
-      localStorage.removeItem(APP_AUTH_CONST); // Replace 'YOUR_AUTH_KEY' with your actual key
-      this.router.navigate(['/']); // Redirect to home or any other page after logout
+    localStorage.removeItem(APP_AUTH_CONST);
+    this.toastr.showInfo("", LogOutMessage )
+    this.router.navigate(['/']);
   }
 }

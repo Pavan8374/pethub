@@ -1,0 +1,69 @@
+<div class="container">
+    <h1 class="title">Add a New Pet</h1>
+    <form [formGroup]="editPetForm" (ngSubmit)="onEditPetSubmit()" class="form-container">
+        <input formControlName="id" type="hidden" />
+        <div class="form-group"
+        [ngClass]="{'form-group-error': editPetForm.get('petName')?.invalid && editPetForm.get('petName')?.touched}">
+        <label for="petName" class="form-label">Pet Name</label>
+        <input id="petName" formControlName="petName" type="text" class="form-control" placeholder="Enter pet name" />
+        <div *ngIf="editPetForm.get('petName')?.invalid && editPetForm.get('petName')?.touched" class="error-message">Pet
+          Name is required</div>
+      </div>
+      <div class="form-group"
+        [ngClass]="{'form-group-error': editPetForm.get('species')?.invalid && editPetForm.get('species')?.touched}">
+        <label for="species" class="form-label">Species</label>
+        <input id="species" formControlName="species" type="text" class="form-control" placeholder="Enter species" />
+        <div *ngIf="editPetForm.get('species')?.invalid && editPetForm.get('species')?.touched" class="error-message">
+          Species is required</div>
+      </div>
+      <div class="form-group"
+        [ngClass]="{'form-group-error': editPetForm.get('breed')?.invalid && editPetForm.get('breed')?.touched}">
+        <label for="breed" class="form-label">Breed</label>
+        <input id="breed" formControlName="breed" type="text" class="form-control" placeholder="Enter breed" />
+        <div *ngIf="editPetForm.get('breed')?.invalid && editPetForm.get('breed')?.touched" class="error-message">Breed is
+          required</div>
+      </div>
+      <div class="form-group"
+        [ngClass]="{'form-group-error': editPetForm.get('gender')?.invalid && editPetForm.get('gender')?.touched}">
+        <label for="gender" class="form-label">Gender</label>
+        <select id="gender" formControlName="gender" class="form-control">
+          <option value="" disabled selected>Please select from dropdown</option>
+          <option [ngValue]="1">Male</option>
+          <option [ngValue]="2">Female</option>
+          <option [ngValue]="3">Other</option>
+        </select>
+        <div *ngIf="editPetForm.get('gender')?.invalid && editPetForm.get('gender')?.touched" class="error-message">
+          Gender is required
+        </div>
+      </div>
+  
+      <div class="form-group"
+        [ngClass]="{'form-group-error': editPetForm.get('color')?.invalid && editPetForm.get('color')?.touched}">
+        <label for="color" class="form-label">Color</label>
+        <input id="color" formControlName="color" type="text" class="form-control" placeholder="Enter color" />
+        <div *ngIf="editPetForm.get('color')?.invalid && editPetForm.get('color')?.touched" class="error-message">Color is
+          required</div>
+      </div>
+      <div class="form-group">
+        <label for="weight" class="form-label">Weight</label>
+        <input id="weight" formControlName="weight" type="text" class="form-control" placeholder="Enter weight" />
+      </div>
+      <div class="form-group">
+        <label for="age" class="form-label">Age</label>
+        <input id="age" formControlName="age" type="text" class="form-control" placeholder="Enter age" />
+      </div>
+      <div class="form-group">
+        <label for="microchipNumber" class="form-label">Microchip Number</label>
+        <input id="microchipNumber" formControlName="microchipNumber" type="text" class="form-control"
+          placeholder="Enter microchip number" />
+      </div>
+      <div class="form-group">
+        <label for="dateofBirth" class="form-label">Date of Birth</label>
+        <input id="dateofBirth" formControlName="dateofBirth" type="date" class="form-control" />
+      </div>
+      <div class="button-group">
+        <button type="submit" class="submit-button" [ngClass]="{'disabled': editPetForm.invalid}">Update Pet</button>
+        <button type="button" class="cancel-button" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
