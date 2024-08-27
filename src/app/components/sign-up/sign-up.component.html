@@ -1,108 +1,91 @@
-<section class="vh-100">
-  <div class="container h-100">
+<section class="vh-100 web3-theme">
+  <div class="container h-80">
     <div class="row d-flex justify-content-center align-items-center h-100" style="padding: 50px;">
       <div class="col-lg-12 col-xl-11">
-        <div class="card text-black">
+        <div class="card text-white web3-card">
           <div class="card-body p-md-5">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-                <form [formGroup]="signUpform" class="mx-1 mx-md-4" (ngSubmit)="onSignUpClick()">
-
+            <mat-horizontal-stepper labelPosition="bottom" backgroundColor="transparent" #stepper>
+              <mat-step label="Basic Information">
+                <form [formGroup]="signUpform" (ngSubmit)="onNextClick()">
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="firstName" class="form-control" formControlName="firstName" [ngClass]="{'is-invalid': signUpform.get('firstName')?.invalid && signUpform.get('firstName')?.touched}" />
-                      <label class="form-label" for="firstName">First Name</label>
+                      <input type="text" id="firstName" class="form-control neon-input" formControlName="firstName" [ngClass]="{'is-invalid': signUpform.get('firstName')?.invalid && signUpform.get('firstName')?.touched}" />
+                      <label class="form-label neon-label" for="firstName">First Name</label>
                       <div *ngIf="signUpform.get('firstName')?.invalid && signUpform.get('firstName')?.touched" class="invalid-feedback">
                         First name is required.
                       </div>
                     </div>
                   </div>
-
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="lastName" class="form-control" formControlName="lastName" [ngClass]="{'is-invalid': signUpform.get('lastName')?.invalid && signUpform.get('lastName')?.touched}" />
-                      <label class="form-label" for="lastName">Last Name</label>
+                      <input type="text" id="lastName" class="form-control neon-input" formControlName="lastName" [ngClass]="{'is-invalid': signUpform.get('lastName')?.invalid && signUpform.get('lastName')?.touched}" />
+                      <label class="form-label neon-label" for="lastName">Last Name</label>
                       <div *ngIf="signUpform.get('lastName')?.invalid && signUpform.get('lastName')?.touched" class="invalid-feedback">
                         Last name is required.
                       </div>
                     </div>
                   </div>
-
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="userName" class="form-control" formControlName="userName" [ngClass]="{'is-invalid': signUpform.get('userName')?.invalid && signUpform.get('userName')?.touched}" />
-                      <label class="form-label" for="userName">User Name</label>
+                      <input type="text" id="userName" class="form-control neon-input" formControlName="userName" [ngClass]="{'is-invalid': signUpform.get('userName')?.invalid && signUpform.get('userName')?.touched}" />
+                      <label class="form-label neon-label" for="userName">Username</label>
                       <div *ngIf="signUpform.get('userName')?.invalid && signUpform.get('userName')?.touched" class="invalid-feedback">
-                        User name is required.
+                        Username is required.
                       </div>
                     </div>
                   </div>
-
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-phone fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="phoneNumber" class="form-control" formControlName="phoneNumber" [ngClass]="{'is-invalid': signUpform.get('phoneNumber')?.invalid && signUpform.get('phoneNumber')?.touched}" />
-                      <label class="form-label" for="phoneNumber">Phone Number</label>
+                      <input type="text" id="phoneNumber" class="form-control neon-input" formControlName="phoneNumber" [ngClass]="{'is-invalid': signUpform.get('phoneNumber')?.invalid && signUpform.get('phoneNumber')?.touched}" />
+                      <label class="form-label neon-label" for="phoneNumber">Phone Number</label>
                       <div *ngIf="signUpform.get('phoneNumber')?.invalid && signUpform.get('phoneNumber')?.touched" class="invalid-feedback">
                         Enter a valid phone number.
                       </div>
                     </div>
                   </div>
-
+                  <div class="d-flex justify-content-between mt-4">
+                    <button mat-button type="button" class="neon-button" (click)="stepper.next()">Next</button>
+                    <button mat-button type="button" (click)="router.navigate(['/'])">Cancel</button>
+                  </div>
+                </form>
+              </mat-step>
+              
+              <mat-step label="Account Details">
+                <form [formGroup]="signUpform" (ngSubmit)="onSignUpClick()">
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="email" id="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid': signUpform.get('email')?.invalid && signUpform.get('email')?.touched}" />
-                      <label class="form-label" for="email">Email</label>
+                      <input type="email" id="email" class="form-control neon-input" formControlName="email" [ngClass]="{'is-invalid': signUpform.get('email')?.invalid && signUpform.get('email')?.touched}" />
+                      <label class="form-label neon-label" for="email">Email</label>
                       <div *ngIf="signUpform.get('email')?.invalid && signUpform.get('email')?.touched" class="invalid-feedback">
                         Enter a valid email.
                       </div>
                     </div>
                   </div>
-
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="password" class="form-control" formControlName="password" [ngClass]="{'is-invalid': signUpform.get('password')?.invalid && signUpform.get('password')?.touched}" />
-                      <label class="form-label" for="password">Password</label>
+                      <input type="password" id="password" class="form-control neon-input" formControlName="password" [ngClass]="{'is-invalid': signUpform.get('password')?.invalid && signUpform.get('password')?.touched}" />
+                      <label class="form-label neon-label" for="password">Password</label>
                       <div *ngIf="signUpform.get('password')?.invalid && signUpform.get('password')?.touched" class="invalid-feedback">
-                        Password does not meet the required criteria.
+                        Password is required and must meet strength criteria.
                       </div>
                     </div>
                   </div>
-
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword" [ngClass]="{'is-invalid': signUpform.get('confirmPassword')?.invalid && signUpform.get('confirmPassword')?.touched}" />
-                      <label class="form-label" for="confirmPassword">Repeat your password</label>
+                      <input type="password" id="confirmPassword" class="form-control neon-input" formControlName="confirmPassword" [ngClass]="{'is-invalid': signUpform.get('confirmPassword')?.invalid && signUpform.get('confirmPassword')?.touched}" />
+                      <label class="form-label neon-label" for="confirmPassword">Confirm Password</label>
                       <div *ngIf="signUpform.get('confirmPassword')?.invalid && signUpform.get('confirmPassword')?.touched" class="invalid-feedback">
-                        Please confirm your password.
+                        Confirm password is required.
                       </div>
                     </div>
                   </div>
-
-                  <div class="form-check d-flex justify-content-center mb-5">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="terms" />
-                    <label class="form-check-label" for="terms">
-                      I agree to all statements in <a href="#!">Terms of service</a>
-                    </label>
-                  </div>
-
-                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                  <div class="d-flex justify-content-between mt-4">
+                    <button mat-button type="button" class="neon-button" (click)="stepper.previous()">Back</button>
+                    <button mat-raised-button color="primary" type="submit" [disabled]="signUpform.invalid">Sign Up</button>
                   </div>
                 </form>
-              </div>
-              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                  class="img-fluid" alt="Sample image">
-              </div>
-            </div>
+              </mat-step>
+            </mat-horizontal-stepper>
           </div>
         </div>
       </div>

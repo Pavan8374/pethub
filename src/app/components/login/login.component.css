@@ -1,47 +1,83 @@
 .vh-100 {
     height: 100vh;
-    background-color: blueviolet;
-    background-image: url('https://www.transparenttextures.com/patterns/cartographer.png');
+    background-color: rgba(0, 0, 0, 0.8);
+    background-image: radial-gradient(circle, rgba(0,0,255,0.2), rgba(255,0,255,0.2), rgba(0,255,255,0.2));
+    background-blend-mode: overlay;
+    color: #00FFDD;
+    font-family: 'Roboto', sans-serif;
 }
 
 .card {
     border-radius: 25px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
 }
 
 .h1 {
-    color: #ff007f;
+    color: #FF00FF;
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
 }
 
 .form-outline .form-control {
     border-radius: 15px;
-    background-color: #eef;
-    box-shadow: inset 0 0 10px rgba(0, 0, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #00FFFF;
+    box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
 }
 
 .form-outline .form-label {
-    color: black;
+    color: #FFFFFF;
+    text-shadow: 0 0 5px #FF00FF;
 }
 
 .btn-primary {
-    background-color: #ff007f;
+    background-color: #FF00FF;
     border-radius: 20px;
-    box-shadow: 0 0 20px #ff007f;
+    box-shadow: 0 0 20px #FF00FF;
+    color: #FFFFFF;
+    text-shadow: 0 0 5px #00FFFF;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #00FFFF;
+    box-shadow: 0 0 20px #00FFFF, 0 0 30px #FF00FF;
+    color: #000000;
+    text-shadow: 0 0 10px #00FFFF;
+}
+
+.btn-cancel {
+    background-color: #0400ff;
+    border-radius: 20px;
+    color: #FFFFFF;
+    text-shadow: 0 0 5px #FF007F;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+    box-shadow: 0 0 10px #FF007F;
+}
+
+.btn-cancel:hover {
+    background-color: #bfff6b;
+    box-shadow: 0 0 20px #e7ab66, 0 0 30px #3a73ec;
+    color: #FFFFFF;
+    text-shadow: 0 0 10px #FF00FF;
 }
 
 .form-check-input {
     border-radius: 50%;
-    background-color: #ff007f;
+    background-color: #FF00FF;
 }
 
 .form-check-label a {
-    color: #00f;
-    text-shadow: 0 0 10px #0ff;
+    color: #00FFFF;
+    text-shadow: 0 0 10px #00FFFF;
 }
 
 p.mb-0 a {
-    color: #ff007f;
-    text-shadow: 0 0 10px #ff007f;
+    color: #FF00FF;
+    text-shadow: 0 0 10px #FF00FF;
 }
 
 .custom-gif {

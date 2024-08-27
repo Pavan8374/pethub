@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="#">🐾 Virtual Pet Sanctuary</a>
+    <a class="navbar-brand" href="#">🐾 Pet Hub</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
         data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
+        aria-label="Toggle navigation" (click)="toggleTheme()">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -12,7 +12,7 @@
             <li class="nav-item">
                 <a class="btn btn-primary" href="#" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="isLoggedIn()">
                 <a routerLink="/adoption-center" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Adoption Center</a>
             </li>
             <li class="nav-item" *ngIf="isLoggedIn()">

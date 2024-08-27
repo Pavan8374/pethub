@@ -1,81 +1,114 @@
-/* Night sky background */
-.night-sky {
-  position: fixed;
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* Apply Orbitron font globally */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Orbitron', sans-serif; /* Apply Orbitron font globally */
+}
+
+/* General styles */
+body {
+  background-color: #1a1a1a; /* Dark background for Web3 theme */
+  color: #e0e0e0; /* Light text color for readability */
+}
+
+/* Example for toast notifications */
+.custom-toast {
+  width: 280px; /* Reduced width */
+  min-height: 80px; /* Minimum height */
+  padding: 15px; /* More padding for better aesthetics */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  font-family: 'Orbitron', sans-serif; /* Futuristic font */
+  color: #fff; /* Default text color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  display: flex; /* Flex for better layout */
+  align-items: center; /* Center vertically */
+  justify-content: space-between; /* Space between message and icon */
+  margin-top: 10px !important;
+  position: relative; /* For positioning the icon */
+  overflow: hidden; /* Ensure contents don't overflow */
+}
+
+/* Neon border effect */
+.custom-toast::before {
+  content: "";
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(125deg, #000033, #000066);
+  border: 2px solid #fff; /* White neon border */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Neon glow */
+  z-index: -1; /* Behind the content */
+}
+
+/* Neon gradient backgrounds for different toast types */
+.custom-toast.toast-success {
+  background: linear-gradient(to right, #00FFAB, #00BF9A);
+}
+
+.custom-toast.toast-error {
+  background: linear-gradient(to right, #FF6B6B, #FF4757);
+}
+
+.custom-toast.toast-info {
+  background: linear-gradient(to right, #1E90FF, #00BFFF);
+}
+
+.custom-toast.toast-warning {
+  background: linear-gradient(to right, #FFD700, #FFBF00);
+}
+
+.custom-toast .message-container {
+  display: inline-flex; /* Use inline-flex to shrink-wrap the content */
+  align-items: center; /* Align items in the center vertically */
+  overflow: hidden; /* Ensure long text doesn’t overflow */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.custom-toast .message-container span {
   overflow: hidden;
-  z-index: -1; /* Ensure the background stays behind other elements */
+  text-overflow: ellipsis; /* Ellipsis for long text */
 }
 
-/* Toaster CSS */
-.toast-container {
-  z-index: 1000; /* Ensure toasts appear above other elements */
+/* Add icons after message */
+.custom-toast:after {
+  content: "";
+  display: inline-block;
+  width: 24px; /* Icon width */
+  height: 24px; /* Icon height */
+  margin-left: 10px; /* Space between message and icon */
+  background-size: cover; /* To cover background */
 }
 
+/* Specific icons */
+.custom-toast.toast-success:after {
+  background-image: url('assets/images/check.png'); /* Path to success icon with neon effect */
+}
+
+.custom-toast.toast-error:after {
+  background-image: url('assets/images/close.png'); /* Path to error icon with neon effect */
+}
+
+.custom-toast.toast-info:after {
+  background-image: url('assets/images/information.png'); /* Path to info icon with neon effect */
+}
+
+.custom-toast.toast-warning:after {
+  background-image: url('assets/images/caution.png'); /* Path to warning icon with neon effect */
+}
+
+/* Transition effect */
 .custom-toast {
-  color: #fff;
-  border-radius: 25px; /* Rounded corners */
-  padding: 20px; /* Added padding for better spacing */
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Stronger shadow for a more prominent look */
-  animation: slideInRight 0.5s, fadeOut 2.5s 3s forwards;
-  z-index: 1001; /* Ensuring it's on top of most other elements */
-  position: relative;
-  font-size: 1.2rem; /* Adjusted font size for better readability */
-  line-height: 1.6; /* Improved line spacing for better text visibility */
-  background-size: cover; /* Ensure background covers entire area */
-  overflow: hidden; /* Hide overflow to prevent content from spilling out */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
 }
 
-/* Error Toast */
-.toast-error {
-  background-image: linear-gradient(135deg, #f1071b, #ff9271); /* Red to Orange gradient */
+.custom-toast:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
 }
 
-/* Success Toast */
-.toast-success {
-  background-image: linear-gradient(135deg, #00c853, #b2ff59af); /* Green to Light Green gradient */
-}
-
-/* Info Toast */
-.toast-info {
-  background-image: linear-gradient(135deg, #2196f3, #083c53); /* Blue gradient */
-}
-
-/* Warning Toast */
-.toast-warning {
-  background-image: linear-gradient(135deg, #ff9800, #ffc107); /* Orange gradient */
-}
-
-@keyframes slideInRight {
-  from {  
-      transform: translateX(100%);
-      opacity: 0;
-  }
-  to {
-      transform: translateX(0);
-      opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  to {
-      opacity: 0;
-      transform: translateX(100%);
-  }
-}
-
-.toast-top-right {
-  top: 20px;
-  right: 20px;
-  position: fixed;
-}
-
-.toast-progress {
-  background: linear-gradient(90deg, #ff007f, #00f);
-  height: 5px;
-  border-radius: 0 0 25px 25px;
-}
 
