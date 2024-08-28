@@ -1,38 +1,35 @@
 <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="#">🐾 Pet Hub</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation" (click)="toggleTheme()">
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" [ngClass]="{'show': isNavbarCollapsed}">
         <ul class="navbar-nav me-auto">
             <li class="nav-item">
-                <a class="btn btn-primary" href="#" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Home</a>
+                <a class="btn btn-primary" href="#" (click)="closeNavbar()">Home</a>
             </li>
             <li class="nav-item" *ngIf="isLoggedIn()">
-                <a routerLink="/adoption-center" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Adoption Center</a>
+                <a routerLink="/adoption-center" class="btn btn-primary" (click)="closeNavbar()">Adoption Center</a>
             </li>
             <li class="nav-item" *ngIf="isLoggedIn()">
-                <a routerLink="/my-pets" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">My Pets</a>
+                <a routerLink="/my-pets" class="btn btn-primary" (click)="closeNavbar()">My Pets</a>
             </li>
         </ul>
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-                <button id="theme-toggle" (click)="toggleTheme()" class="btn btn-secondary">
-                    <i [ngClass]="{'bi-sun-fill': isDarkMode, 'bi-moon-fill': !isDarkMode}"></i>
+                <button (click)="toggleTheme()" class="btn-toggle-theme">
+                    <i [ngClass]="{'bi-sun-fill': isDarkTheme, 'bi-moon-fill': !isDarkTheme}"></i>
                 </button>
             </li>
             <li class="nav-item" *ngIf="!isLoggedIn()">
-                <a routerLink="/sign-up" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Sign Up</a>
+                <a routerLink="/sign-up" class="btn btn-primary" (click)="closeNavbar()">Sign Up</a>
             </li>
             <li class="nav-item" *ngIf="!isLoggedIn()">
-                <a routerLink="/login" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Log in</a>
+                <a routerLink="/login" class="btn btn-primary" (click)="closeNavbar()">Log in</a>
             </li>
             <li class="nav-item" *ngIf="isLoggedIn()">
-                <button (click)="logout()" class="btn btn-danger" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Logout</button>
+                <button (click)="logout(); closeNavbar()" class="btn btn-danger">Logout</button>
             </li>
         </ul>
     </div>

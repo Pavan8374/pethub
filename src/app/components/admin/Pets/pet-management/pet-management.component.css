@@ -1,10 +1,8 @@
 .pets-management-container {
   padding: 20px;
-  background-color: #e0f7fa;
-  background-image: url('https://www.transparenttextures.com/patterns/doodles.png');
   border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  box-shadow: 0 0 20px var(--neon-blue);
+  font-family: 'Orbitron', sans-serif;
 }
 
 .header {
@@ -16,23 +14,24 @@
 
 h1 {
   font-size: 2.5em;
-  color: #ff69b4;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px var(--neon-blue);
 }
 
 .add-pet-button {
   padding: 10px 20px;
-  background-color: #ff69b4;
-  border: none;
+  background-color: transparent;
+  border: 2px solid var(--neon-green);
   border-radius: 20px;
-  color: white;
+  color: var(--neon-green);
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
-  transition: all 0.2s;
+  transition: all 0.3s;
 }
 
 .add-pet-button:hover {
-  background-color: #ff1493;
+  background-color: var(--neon-green);
+  color: var(--primary-bg);
+  box-shadow: 0 0 15px var(--neon-green);
   transform: translateY(-2px) scale(1.05);
 }
 
@@ -45,8 +44,10 @@ h1 {
 
 .search-input, .search-select {
   padding: 8px;
-  border: 2px solid #ff69b4;
+  background-color: rgb(175, 175, 174);
+  border: 2px solid var(--neon-pink);
   border-radius: 10px;
+  color: var(--neon-pink);
   font-family: inherit;
 }
 
@@ -54,20 +55,23 @@ h1 {
   display: flex;
   align-items: center;
   gap: 5px;
+  color: var(--neon-green);
 }
 
 .search-button {
   padding: 8px 15px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
+  background-color: transparent;
+  border: 2px solid var(--neon-blue);
+  color: var(--neon-blue);
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.3s;
 }
 
 .search-button:hover {
-  background-color: #45a049;
+  background-color: var(--neon-blue);
+  color: var(--primary-bg);
+  box-shadow: 0 0 15px var(--neon-blue);
 }
 
 .table-container {
@@ -82,7 +86,8 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.5em;
-  color: #ff69b4;
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px var(--neon-pink);
 }
 
 .pets-table {
@@ -98,21 +103,22 @@ h1 {
 }
 
 .pets-table th {
-  background-color: #ff69b4;
-  color: white;
+  background-color: var(--neon-blue);
+  color: var(--primary-bg);
   font-weight: bold;
   text-transform: uppercase;
 }
 
 .pet-row {
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px var(--neon-green);
+  transition: all 0.3s;
+  color: white;
 }
 
 .pet-row:hover {
   transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 20px var(--neon-green);
 }
 
 .color-dot {
@@ -121,6 +127,7 @@ h1 {
   height: 15px;
   border-radius: 50%;
   margin-right: 5px;
+  box-shadow: 0 0 5px currentColor;
 }
 
 .action-buttons {
@@ -133,24 +140,31 @@ h1 {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.3s;
 }
 
 .edit-button {
-  background-color: #ffc107;
+  background-color: transparent;
+  border: 1px solid var(--neon-blue);
+  color: var(--neon-blue);
 }
 
 .edit-button:hover {
-  background-color: #ffb300;
+  background-color: var(--neon-blue);
+  color: var(--primary-bg);
+  box-shadow: 0 0 10px var(--neon-blue);
 }
 
 .delete-button {
-  background-color: #f44336;
-  color: white;
+  background-color: transparent;
+  border: 1px solid var(--neon-pink);
+  color: var(--neon-pink);
 }
 
 .delete-button:hover {
-  background-color: #d32f2f;
+  background-color: var(--neon-pink);
+  color: var(--primary-bg);
+  box-shadow: 0 0 10px var(--neon-pink);
 }
 
 .pagination {
@@ -161,24 +175,28 @@ h1 {
 
 .page-button {
   padding: 8px 15px;
-  background-color: #2196f3;
-  color: white;
-  border: none;
+  background-color: transparent;
+  border: 2px solid var(--neon-green);
+  color: var(--neon-green);
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.3s;
 }
 
 .page-button:hover:not(:disabled) {
-  background-color: #1976d2;
+  background-color: var(--neon-green);
+  color: var(--primary-bg);
+  box-shadow: 0 0 15px var(--neon-green);
 }
 
 .page-button:disabled {
-  background-color: #bdbdbd;
+  background-color: rgba(100, 100, 100, 0.3);
+  border-color: rgba(100, 100, 100, 0.3);
+  color: rgba(100, 100, 100, 0.5);
   cursor: not-allowed;
 }
 
 .page-info {
   font-weight: bold;
-  color: #333;
+  color: var(--neon-blue);
 }
