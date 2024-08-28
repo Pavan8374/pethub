@@ -16,8 +16,9 @@ import { CustomToasterService } from '../../services/custom-toaster.service';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  isDarkMode = false;
-
+  isDarkTheme: boolean = true;
+  isNavbarCollapsed: boolean = true;
+  
   constructor(
     private authService: AuthService, 
     private router: Router,
@@ -25,21 +26,23 @@ export class NavbarComponent {
     private toastr: CustomToasterService
     ) { }
 
-  ngOnInit(): void {
-    this.isDarkMode = localStorage.getItem('theme') === 'dark';
-  }
-
-  toggleTheme(): void {
-    debugger;
-    this.isDarkMode = !this.isDarkMode;
-    localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
-    this.updateTheme();
-  }
-
-  updateTheme(): void {
-    const theme = this.isDarkMode ? 'dark' : 'light';
-    this.renderer.setAttribute(document.body, 'data-theme', theme);
-  }
+    ngOnInit(): void {
+      const savedTheme = localStorage.getItem('theme');
+      this.isDarkTheme = savedTheme ? savedTheme === 'dark' : true;
+      this.applyTheme();
+    }
+  
+    toggleTheme() {
+      this.isDarkTheme = !this.isDarkTheme;
+      this.applyTheme();
+      localStorage.setItem('theme', this.isDarkTheme ? 'dark' : 'light');
+    }
+  
+    applyTheme() {
+      const themeClass = this.isDarkTheme ? 'dark-theme' : 'light-theme';
+      this.renderer.removeClass(document.body, this.isDarkTheme ? 'light-theme' : 'dark-theme');
+      this.renderer.addClass(document.body, themeClass);
+    }
 
   isLoggedIn(): boolean {
     return this.authService.userIsLogin();
@@ -49,5 +52,12 @@ export class NavbarComponent {
     localStorage.removeItem(APP_AUTH_CONST);
     this.toastr.showInfo("", LogOutMessage )
     this.router.navigate(['/']);
+  }
+  toggleNavbar(): void {
+    this.isNavbarCollapsed = !this.isNavbarCollapsed;
+  }
+
+  closeNavbar(): void {
+    this.isNavbarCollapsed = true;
   }
 }
