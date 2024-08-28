@@ -1,22 +1,22 @@
-/* Background and container styling */
+/* Container styling */
 .container {
-  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-  border-radius: 20px;
-  padding: 30px;
+  padding: 15px;
+  /* background-color: var(--secondary-bg); */
+  border-radius: 15px;
+  box-shadow: 0 0 15px var(--neon-blue);
+  font-family: 'Orbitron', sans-serif;
   max-width: 600px;
   margin: auto;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
 }
 
 /* Title styling */
 .title {
   text-align: center;
-  color: #fff;
-  margin-bottom: 25px;
-  font-family: 'Pacifico', cursive;
-  font-size: 28px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  color: var(--neon-blue);
+  background-color: transparent;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
 /* Form styling */
@@ -26,62 +26,64 @@
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .form-label {
   display: block;
-  margin-bottom: 8px;
-  color: #fff;
+  margin-bottom: 6px;
+  color: var(--neon-green);
   font-weight: bold;
 }
 
 .form-control {
   width: 100%;
-  padding: 12px;
-  border: 2px solid #eee;
+  padding: 10px;
+  border: 2px solid var(--neon-blue);
   border-radius: 10px;
-  font-size: 16px;
-  transition: border-color 0.3s ease, background-color 0.3s ease;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 8px var(--neon-green);
+  transition: all 0.3s;
+  color: white;
 }
 
 .form-control:focus {
-  border-color: #ff007f;
-  background-color: #fff;
+  border-color: var(--neon-pink);
+  background-color: rgba(10, 10, 10, 0.8);
   outline: none;
 }
 
 .error-message {
-  color: #ff007f;
+  color: var(--neon-pink);
   font-size: 12px;
   margin-top: 5px;
 }
 
 .form-group-error .form-control {
-  border-color: #ff007f;
+  border-color: var(--neon-pink);
 }
 
 /* Button styling */
 .button-group {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 }
 
 .submit-button,
 .cancel-button {
   flex: 1;
-  padding: 12px 20px;
-  font-size: 18px;
-  border-radius: 15px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .submit-button {
-  background-color: #ff007f;
+  background-color: var(--neon-pink);
   color: #fff;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 .submit-button:hover {
@@ -94,9 +96,10 @@
 }
 
 .cancel-button {
-  background-color: #57575742;
+  background-color: var(--secondary-bg);
   color: #fff;
-  margin-left: 10px;
+  border: 2px solid var(--neon-green);
+  margin-left: 8px;
 }
 
 .cancel-button:hover {
@@ -111,6 +114,6 @@
 
   .submit-button,
   .cancel-button {
-    margin: 10px 0;
+    margin: 5px 0;
   }
 }

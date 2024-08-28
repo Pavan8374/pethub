@@ -1,10 +1,7 @@
 /* General Styling */
 .home-container {
-    /* font-family: 'Comic Sans MS', cursive; */
-    /* background-color: #f0f8ff; */
     border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     animation: fadeIn 1.5s;
 }
 
@@ -13,26 +10,14 @@
     to { opacity: 1; }
 }
 
-h1.display-4 {
-    color: #ff69b4;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    animation: bounceIn 2s;
-}
-
 @keyframes bounceIn {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-20px);
-    }
-    60% {
-        transform: translateY(-10px);
-    }
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
 }
 
 .lead {
-    color: #ff7f50;
+    color: var(--neon-pink);
     font-weight: bold;
 }
 
@@ -42,7 +27,14 @@ h1.display-4 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: rgba(15, 16, 56, 0.9); /* Slightly transparent background */
+    background-color: rgba(10, 10, 10, 0.8);
+    border: 1px solid var(--neon-blue);
+    transition: all 0.3s ease;
+}
+
+.card-square:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--neon-blue);
 }
 
 .card-square .card-body {
@@ -52,84 +44,79 @@ h1.display-4 {
     justify-content: space-between;
 }
 
-.card-stats {
-    background-color: rgba(15, 16, 56, 0.9); /* Slightly transparent background */
-    color: white;
-}
-
-.card-adoption {
-    background-color: rgba(11, 91, 116, 0.9); /* Slightly transparent background */
-    color: white;
-}
-
-.card-my-pets {
-    background-color: rgba(147, 112, 219, 0.9); /* Slightly transparent background */
-    color: white;
-}
-
-
-.card-square:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.card-title {
+body.dark-theme .card-title {
     font-size: 1.4rem;
     font-weight: bold;
     margin-bottom: 15px;
+    color: var(--neon-blue);
+}
+body.light-theme .card-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--neon-pink);
 }
 
+.card-text {
+    color: var(--text-color);
+}
+
+/* Button Styles */
 .btn {
     border-radius: 20px;
-    font-family: 'Comic Sans MS', cursive;
+    background-color: transparent;
+    border: 2px solid var(--neon-green);
+    color: var(--neon-green);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--neon-green);
+    color: var(--text-color);
+    box-shadow: 0 0 15px var(--neon-green);
 }
 
 .btn-adopt {
-    background-color: #ff4500;
-    color: white;
-    transition: background-color 0.3s, box-shadow 0.3s;
+    border-color: var(--neon-pink);
+    color: var(--neon-pink);
 }
 
 .btn-adopt:hover {
-    background-color: #ff6347;
-    box-shadow: 0 0 15px rgba(255, 99, 71, 0.6);
+    background-color: var(--neon-pink);
+    box-shadow: 0 0 15px var(--neon-pink);
 }
 
 .btn-my-pets {
-    background-color: #20b2aa;
-    color: white;
-    transition: background-color 0.3s, box-shadow 0.3s;
+    border-color: var(--neon-blue);
+    color: var(--neon-blue);
 }
 
 .btn-my-pets:hover {
-    background-color: #5f9ea0;
-    box-shadow: 0 0 15px rgba(32, 178, 170, 0.6);
+    background-color: var(--neon-blue);
+    box-shadow: 0 0 15px var(--neon-blue);
 }
 
 /* News Feed Styles */
 .card-news-feed {
-    background-color: #67adee7c;
-    color: #ff4500;
+    background-color: rgba(10, 10, 10, 0.8);
+    border: 1px solid var(--neon-green);
     border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
 }
 
-.card-news-feed .card-title {
-    color: #ff4500;
-}
 
-.news-list {
+.list {
     list-style-type: none;
     padding: 0;
     font-size: 1.2rem;
 }
 
-.news-list li {
+.list li {
     padding: 10px 0;
-    border-bottom: 1px dashed #ff4500;
+    border-bottom: 1px dashed var(--neon-green);
 }
 
-.news-list li:last-child {
+.list li:last-child {
     border-bottom: none;
 }

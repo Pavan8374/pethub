@@ -1,17 +1,224 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+/* Global styles for both themes */
+:root {
+  /* Dark theme variables */
+  --primary-bg: #000000;
+  --secondary-bg: #0a0a0a;
+  --text-color: #e3ece3;
+  --card-bg: rgb(3, 3, 3);
+  --btn-bg: #ffffff;
+  --neon-green: #31ff31;
+  --neon-blue: #00ffff;
+  --neon-pink: #814783;
 
-/* Apply Orbitron font globally */
-html, body {
-  height: 100%;
-  margin: 0;
-  font-family: 'Orbitron', sans-serif; /* Apply Orbitron font globally */
+  /* Light theme variables */
+  --light-primary-bg: #f5f5f5;
+  --light-secondary-bg: #ffffff;
+  --light-text-color: #000000;
+  --light-card-bg: #ffffff;
+  --light-btn-bg: #6200ea;
+  --light-neon-green: #00c853;
+  --light-neon-blue: #2196f3;
+  --light-neon-pink: #d81b60;
+  --light-yellow:rgb(252, 252, 97);
 }
 
-/* General styles */
+/* Dark theme styles */
+body.dark-theme {
+  background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
+  color: var(--text-color);
+}
+
+body.dark-theme h1, 
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6 {
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px rgba(194, 240, 240, 0.7);
+}
+
+body.light-theme h1, 
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme h5,
+body.light-theme h6 {
+  color: var(--light-neon-pink);
+  text-shadow: 0 0 10px rgba(194, 240, 240, 0.7);
+}
+
+body.dark-theme a {
+  color: var(--neon-pink);
+}
+
+body.dark-theme a:hover {
+  color: var(--neon-blue);
+}
+
+body.dark-theme .btn {
+  background-color: var(--btn-bg);
+  color: #000000;
+  border: 2px solid var(--neon-green);
+  margin: 0 0.5rem;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid;
+}
+
+body.dark-theme .btn:hover {
+  background-color: var(--neon-green);
+  color: var(--primary-bg);
+  box-shadow: 0 0 15px var(--neon-green);
+}
+
+body.dark-theme .card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--neon-blue);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+body.dark-theme .card-title {
+  color: var(--light-yellow);
+}
+
+body.light-theme .card-title {
+  color: var(--light-neon-blue);
+}
+
+body.dark-theme .card-text,
+body.dark-theme .list li,
+body.dark-theme .form-label,
+body.dark-theme .form-check-label,
+body.dark-theme .text-center{
+  color: var(--text-color);
+}
+body.light-theme .card-text,
+body.light-theme .list li,
+body.light-theme .form-label,
+body.light-theme .form-check-label,
+body.light-theme .text-center{
+  color: var(--light-text-color);
+}
+
+/* Light theme styles */
+body.light-theme {
+  background: linear-gradient(135deg, var(--light-primary-bg), var(--light-secondary-bg));
+  color: var(--light-text-color);
+}
+
+body.light-theme h1, 
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme h5,
+body.light-theme h6 {
+  color: var(--light-yellow);
+  text-shadow: 0 0 10px rgba(33, 150, 243, 0.7);
+}
+
+body.light-theme a {
+  color: var(--light-neon-pink);
+}
+
+body.light-theme a:hover {
+  color: var(--light-yellow);
+}
+
+body.light-theme .btn {
+  background-color: var(--light-btn-bg);
+  color: #ffffff;
+  border: 2px solid var(--light-yellow);
+  margin: 0 0.5rem;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid;
+}
+
+body.light-theme .btn:hover {
+  background-color: var(--light-neon-green);
+  color: var(--light-primary-bg);
+  box-shadow: 0 0 15px var(--light-neon-green);
+}
+
+body.light-theme .card {
+  background-color: var(--light-card-bg);
+  border: 1px solid var(--light-yellow);
+  box-shadow: 0 0 20px rgba(33, 150, 243, 0.3);
+}
+
+body.light-theme .card-title {
+  color: var(--light-neon-blue);
+}
+
+body.light-theme .card-text {
+  color: var(--light-text-color);
+}
+
+/* Ensure all existing dark mode styles are not changed */
 body {
-  background-color: #1a1a1a; /* Dark background for Web3 theme */
-  color: #e0e0e0; /* Light text color for readability */
+  font-family: 'Orbitron', 'Roboto', sans-serif;
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+body.dark-theme p{
+  color: var(--text-color);
+}
+
+a {
+  color: var(--neon-pink);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+.btn {
+  background-color: var(--secondary-bg);
+  color: var(--neon-green);
+  border: 2px solid var(--neon-green);
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+.btn-secondary{
+  background-color: var(--secondary-bg);
+  color: var(--neon-red);
+  border: 2px solid var(--neon-red);
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--neon-green);
+  color: var(--primary-bg);
+  box-shadow: 0 0 15px var(--neon-green);
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--neon-blue);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.card-title {
+  color: var(--neon-blue);
+}
+
 
 /* Example for toast notifications */
 .custom-toast {
@@ -29,9 +236,9 @@ body {
   margin-top: 10px !important;
   position: relative; /* For positioning the icon */
   overflow: hidden; /* Ensure contents don't overflow */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
 }
 
-/* Neon border effect */
 .custom-toast::before {
   content: "";
   position: absolute;
@@ -45,21 +252,20 @@ body {
   z-index: -1; /* Behind the content */
 }
 
-/* Neon gradient backgrounds for different toast types */
 .custom-toast.toast-success {
-  background: linear-gradient(to right, #00FFAB, #00BF9A);
+  background: linear-gradient(to right, #15ff00, #96bf00);
 }
 
 .custom-toast.toast-error {
-  background: linear-gradient(to right, #FF6B6B, #FF4757);
+  background: linear-gradient(to right, #FF6B6B, #f5012a);
 }
 
 .custom-toast.toast-info {
-  background: linear-gradient(to right, #1E90FF, #00BFFF);
+  background: linear-gradient(to right, #1E90FF, #40c2a1);
 }
 
 .custom-toast.toast-warning {
-  background: linear-gradient(to right, #FFD700, #FFBF00);
+  background: linear-gradient(to right, #FFD700, #e07f10);
 }
 
 .custom-toast .message-container {
@@ -74,7 +280,6 @@ body {
   text-overflow: ellipsis; /* Ellipsis for long text */
 }
 
-/* Add icons after message */
 .custom-toast:after {
   content: "";
   display: inline-block;
@@ -84,7 +289,6 @@ body {
   background-size: cover; /* To cover background */
 }
 
-/* Specific icons */
 .custom-toast.toast-success:after {
   background-image: url('assets/images/check.png'); /* Path to success icon with neon effect */
 }
@@ -101,14 +305,17 @@ body {
   background-image: url('assets/images/caution.png'); /* Path to warning icon with neon effect */
 }
 
-/* Transition effect */
-.custom-toast {
-  transition: all 0.3s ease-in-out; /* Smooth transition */
-}
-
 .custom-toast:hover {
   transform: scale(1.05); /* Slightly enlarge on hover */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
 }
 
 
+body.light-theme .navbar {
+    background-color: rgba(10, 10, 10, 0.8);
+    border-bottom: 1px solid var(--neon-blue);
+}
+body.dark-theme .navbar {
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid var(--text-color);
+}
