@@ -7,12 +7,32 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomToasterService } from '../../../../services/custom-toaster.service';
 import { NullResponseErrorMessage, PageSize, RemovePetMessage } from '../../../../consts/message';
 import { HttpParams } from '@angular/common/http';
-import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
+import { debounceTime, Subject } from 'rxjs';
+
+// Import Angular Material modules
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-pet-management',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatTableModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    MatPaginatorModule,
+    MatIconModule
+  ],
   templateUrl: './pet-management.component.html',
   styleUrls: ['./pet-management.component.css']
 })
@@ -23,7 +43,6 @@ import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
 
 export class PetManagementComponent implements OnInit {
   pets: Pets[] = [];
-  //searchField: string = 'name';
   searchString: string = '';
   isAdopted: boolean = false;
   pageNumber: number = 1;
@@ -32,8 +51,6 @@ export class PetManagementComponent implements OnInit {
   isLoading: boolean = false;
   searchField!: string;
   searchSubject: Subject<string> = new Subject<string>();
-  activePageIndex: number = 0;
-  activePageSize: number = PageSize;
   totalRecords!: number;
 
   private router = inject(Router);
@@ -60,7 +77,7 @@ export class PetManagementComponent implements OnInit {
         next: (res: any) => {
           if (res) {
             this.toastr.showSuccess("", RemovePetMessage);
-            this.router.navigate(['/admin/pets']);
+            this.getPets();
           } else {
             this.toastr.showError("", NullResponseErrorMessage);
           }
@@ -71,31 +88,14 @@ export class PetManagementComponent implements OnInit {
       });
     } else {
       this.toastr.showError("", NullResponseErrorMessage);
-      this.router.navigate(['/admin/pets']);
     }
   }
 
   setupSearchObservable() {
-    debugger;
     this.searchSubject.pipe(
-      debounceTime(700) 
-    ).subscribe((filterValue: any) => {
-      let urlwithsearch = `${'?SearchString='+(filterValue)+'&PageNumber=1&PageSize='+PageSize}${this.searchField ? ('&SearchField=' + this.searchField) : ''}}`
-      let urlwithoutsearch = `${'?PageNumber=1&PageSize=15'}${this.searchField ? ('&SearchField=' + this.searchField) : ''}}`
-      this.petManagementService.getPetsByFilter(filterValue ? urlwithsearch : urlwithoutsearch).subscribe({
-        next:(response:GetPetsResponse) => {
-        //this.spinner.hide();
-        //this.userDataSource = new MatTableDataSource(UserResponse.data);
-        this.pets = response.data;
-        this.totalPages = response.totalPages;
-        this.isLoading = false;
-        this.totalRecords = response.totalRecords;
-        },
-        error:(err:any) => {
-        this.isLoading = false;
-          this.toastr.showError("", NullResponseErrorMessage)   
-        }
-      })
+      debounceTime(700)
+    ).subscribe((filterValue: string) => {
+      this.getPets();
     });
   }
 
@@ -114,20 +114,21 @@ export class PetManagementComponent implements OnInit {
   }
 
   getPets() {
-    this.isLoading = true;
     debugger;
+    this.isLoading = true;
     const params = new HttpParams()
-      .set('SearchField', this.searchField)
-      .set('SearchString', this.searchString)
-      .set('IsAdopted', this.isAdopted.toString())
-      .set('PageNumber', this.pageNumber.toString())
-      .set('PageSize', this.pageSize.toString());
+      .set('SearchField', this.searchField || '') // Ensure empty string if not set
+      .set('SearchString', this.searchString || '') // Ensure empty string if not set
+      .set('IsAdopted', String(this.isAdopted)) // Convert boolean to string
+      .set('PageNumber', this.pageNumber.toString()) // Convert number to string
+      .set('PageSize', this.pageSize.toString()); // Convert number to string
   
     this.petManagementService.getPetsByFilter(params).subscribe(
       (response: GetPetsResponse) => {
         this.pets = response.data;
         this.totalPages = response.totalPages;
         this.isLoading = false;
+        this.totalRecords = response.totalRecords;
       },
       (error) => {
         console.error('Error fetching pets:', error);

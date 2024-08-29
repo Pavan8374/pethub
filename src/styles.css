@@ -8,7 +8,7 @@
   --btn-bg: #ffffff;
   --neon-green: #31ff31;
   --neon-blue: #00ffff;
-  --neon-pink: #814783;
+  --neon-pink: #c509cc;
 
   /* Light theme variables */
   --light-primary-bg: #f5f5f5;
@@ -19,6 +19,7 @@
   --light-neon-green: #00c853;
   --light-neon-blue: #2196f3;
   --light-neon-pink: #d81b60;
+  --light-red:rgb(238, 161, 161);
   --light-yellow:rgb(252, 252, 97);
 }
 
@@ -38,15 +39,6 @@ body.dark-theme h6 {
   text-shadow: 0 0 10px rgba(194, 240, 240, 0.7);
 }
 
-body.light-theme h1, 
-body.light-theme h2,
-body.light-theme h3,
-body.light-theme h4,
-body.light-theme h5,
-body.light-theme h6 {
-  color: var(--light-neon-pink);
-  text-shadow: 0 0 10px rgba(194, 240, 240, 0.7);
-}
 
 body.dark-theme a {
   color: var(--neon-pink);
@@ -114,7 +106,7 @@ body.light-theme h3,
 body.light-theme h4,
 body.light-theme h5,
 body.light-theme h6 {
-  color: var(--light-yellow);
+  color: var(--light-btn-bg);
   text-shadow: 0 0 10px rgba(33, 150, 243, 0.7);
 }
 
@@ -164,60 +156,10 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  color: var(--neon-blue);
-  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
-}
-
 body.dark-theme p{
   color: var(--text-color);
 }
 
-a {
-  color: var(--neon-pink);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: var(--neon-blue);
-  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
-}
-
-.btn {
-  background-color: var(--secondary-bg);
-  color: var(--neon-green);
-  border: 2px solid var(--neon-green);
-  padding: 10px 20px;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-}
-.btn-secondary{
-  background-color: var(--secondary-bg);
-  color: var(--neon-red);
-  border: 2px solid var(--neon-red);
-  padding: 10px 20px;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-}
-
-.btn:hover {
-  background-color: var(--neon-green);
-  color: var(--primary-bg);
-  box-shadow: 0 0 15px var(--neon-green);
-}
-
-.card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--neon-blue);
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-}
-
-.card-title {
-  color: var(--neon-blue);
-}
 
 
 /* Example for toast notifications */
@@ -318,4 +260,58 @@ body.light-theme .navbar {
 body.dark-theme .navbar {
     background-color: rgb(255, 255, 255);
     border-bottom: 1px solid var(--text-color);
+}
+
+body.dark-theme .pet-row {
+  background-color: rgba(48, 47, 47, 0.5);
+  box-shadow: 0 0 10px var(--neon-green);
+  transition: all 0.3s;
+}
+body.light-theme .pet-row {
+  background-color: rgba(255, 255, 255, 0.938);
+  box-shadow: 0 0 10px var(--light-neon-pink);
+  transition: all 0.3s;
+  color: black;
+}
+
+body.dark-theme .pet-row:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px var(--neon-green);
+}
+
+body.light-theme .pet-row:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px var(--light-neon-pink);
+}
+
+/* Table common css */
+
+body.dark-theme.common-table,
+body.light-theme.common-table
+{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  margin-bottom: 20px;
+}
+
+
+body.dark-theme .common-table th, body.dark-theme .common-table td,
+body.light-theme .common-table th, body.light-theme  .common-table td {
+  padding: 15px;
+  text-align: left;
+}
+
+body.dark-theme .common-table th {
+  background-color: var(--light-yellow);
+  color: var(--primary-bg);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+body.light-theme .common-table th {
+  background-color: var(--light-neon-blue);
+  color: var(--primary-bg);
+  font-weight: bold;
+  text-transform: uppercase;
 }
