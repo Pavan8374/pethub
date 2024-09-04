@@ -15,6 +15,6 @@ import { Router } from '@angular/router';
 export class DashboardComponent {
   private router = inject(Router);
   navigateToPetsManagement() {
-    this.router.navigate(['admin/pets']); // Adjust the route path as per your routing configuration
+    this.router.navigate(['admin/pets']); 
   }
 }

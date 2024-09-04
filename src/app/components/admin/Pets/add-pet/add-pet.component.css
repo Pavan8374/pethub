@@ -12,7 +12,7 @@
 /* Title styling */
 .title {
   text-align: center;
-  color: var(--neon-blue);
+  /* color: var(--neon-blue); */
   background-color: transparent;
   font-weight: bold;
   text-transform: uppercase;
@@ -29,27 +29,27 @@
   margin-bottom: 15px;
 }
 
-.form-label {
+/* .form-label {
   display: block;
   margin-bottom: 6px;
   color: var(--neon-green);
   font-weight: bold;
-}
+} */
 
 .form-control {
   width: 100%;
   padding: 10px;
   border: 2px solid var(--neon-blue);
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
   box-shadow: 0 0 8px var(--neon-green);
   transition: all 0.3s;
-  color: white;
+  /* color: white; */
 }
 
 .form-control:focus {
   border-color: var(--neon-pink);
-  background-color: rgba(10, 10, 10, 0.8);
+  /* background-color: rgba(10, 10, 10, 0.8); */
   outline: none;
 }
 

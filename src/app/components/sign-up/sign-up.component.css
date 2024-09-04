@@ -1,10 +1,10 @@
 /* Background and general styling */
 .vh-100 {
     min-height: 100vh; /* Allows the section to grow with content */
-    
+
     color: #00FFDD;
     font-family: 'Roboto', sans-serif;
-    padding: 20px; /* Adds some padding for spacing */
+    padding: 20px;
     box-sizing: border-box; /* Ensures padding does not affect width calculations */
 }
 
@@ -18,6 +18,11 @@
     margin: auto; /* Center align the card */
     padding: 20px; /* Add padding inside the card */
 }
+
+
+/* .card-body{
+    background-color: var(--light-secondary-bg);
+} */
 
 /* Heading styling */
 .h1 {

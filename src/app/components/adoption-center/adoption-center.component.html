@@ -1,36 +1,24 @@
 <div class="adoption-center">
-  <header class="text-center py-5 mb-4 header">
-    <h1 class="display-4">🌟 Virtual Pet Adoption Center 🌟</h1>
-    <p class="lead">Find your perfect virtual companion and make a new friend today!</p>
-  </header>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 mb-4" *ngFor="let pet of allAnimals">
-        <div class="card h-100 pet-card">
-          <!-- <div class="card-header bg-transparent border-0 text-center">
-            <span class="badge" [ngClass]="getPetTypeBadgeClass(pet.species)">{{pet.species}}</span>
-          </div> -->
-          <img [src]="pet.image" class="card-img-top" [alt]="pet.name">
-          <div class="card-body">
-            <h5 class="card-title">{{pet.name}}</h5>
-            <p class="card-text">{{pet.desciption}}</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <!-- <li class="list-group-item">Age: {{pet.age}} days</li>
-            <li class="list-group-item">Energy: {{pet.energy}}/100</li> -->
-            <li class="list-group-item">Species: {{pet.species}}</li>
-            <li class="list-group-item">Family: {{pet.family}}</li>
-            <li class="list-group-item">Place found: {{pet.place_of_found}}</li>
-            <li class="list-group-item">Diet: {{pet.diet}}/100</li>
-            <li class="list-group-item">Weight in kg: {{pet.weight_kg}}</li>
-            <li class="list-group-item">Height in cm: {{pet.height_cm}}</li>
-          </ul>
-          <div class="card-footer bg-transparent border-0 text-center">
-            <button class="btn btn-adopt w-100" (click)="adoptPet(pet)">Adopt {{pet.name}}</button>
+  <h2 class="text-center">Available Pets for Adoption</h2>
+  <div class="slider-container">
+    <button class="slider-btn prev-btn" (click)="slideLeft()">&#8249;</button>
+    <div class="pet-slider">
+      <div
+        class="pet-card"
+        *ngFor="let pet of visiblePets"
+      >
+        <img src="assets/images/default.jpg" class="pet-image" />
+        <div class="card-content">
+          <h3 class="petcard-title">{{ pet.petName }}</h3>
+          <p class="petcard-text">{{ pet.species }} - {{ pet.breed }}</p>
+          <p class="petcard-text">Age: {{ pet.age }} years</p>
+          <p class="petcard-text">Gender: {{ pet.gender }}</p>
+          <div class="card-buttons">
+            <button class="btn details-btn">Details</button>
           </div>
         </div>
       </div>
     </div>
+    <button class="slider-btn next-btn" (click)="slideRight()">&#8250;</button>
   </div>
 </div>
