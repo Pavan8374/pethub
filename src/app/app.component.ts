@@ -24,14 +24,16 @@ export class AppComponent implements OnInit {
   private checkUserRoleAndRedirect(): void {
     if (this.authService.isTokenExpired()) {
       this.authService.clearAuthToken();
-      this.router.navigate(['/login']);
+      this.router.navigate(['/landing-page'])
     } 
     else {
       const role = this.authService.getRole();
-      this.router.navigate(['/home']);
       if (role === 'Admin') {
         this.router.navigate(['/admin/dashboard']);
       } 
+      else{
+        this.router.navigate(['/landing-page']);
+      }
     }
   }
 }

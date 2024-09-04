@@ -13,11 +13,11 @@
     <mat-form-field class="search-select">
       <mat-label>Search Field</mat-label>
       <mat-select [(ngModel)]="searchField" (selectionChange)="onSearchFieldChange()">
-        <mat-option value="name">Name</mat-option>
-        <mat-option value="species">Species</mat-option>
-        <mat-option value="breed">Breed</mat-option>
+        <mat-option *ngFor="let key of objectKeys(PetSearchKeyWord)" [value]="PetSearchKeyWord[key]">
+          {{ PetSearchKeyWord[key] }}
+        </mat-option>
       </mat-select>
-    </mat-form-field>
+    </mat-form-field>    
 
     <mat-slide-toggle color="primary" [(ngModel)]="isAdopted" [checked]="isAdopted" (change)="onIsAdoptedChange()">
       {{ isAdopted ? 'Adopted' : 'Not Adopted' }}

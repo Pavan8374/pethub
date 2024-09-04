@@ -10,17 +10,20 @@ import { AddPetComponent } from './components/admin/Pets/add-pet/add-pet.compone
 import { inject } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { EditPetComponent } from './components/admin/Pets/edit-pet/edit-pet.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 
 
 const authGuard = () => {
-  debugger
   const authService = inject(AuthService);
   const router = inject(Router);
-  if (!authService.isTokenExpired())
+  if (!authService.isTokenExpired()) {
     return true;
-  router.navigate(['/login'])
-  return false;
+  }
+  else{
+    router.navigate(['/landing-page'])
+    return false;
+  }
 };
 
 const adminGuard = () => {
@@ -28,18 +31,20 @@ const adminGuard = () => {
   const router = inject(Router);
   if (!authService.isTokenExpired() && authService.getRole() == 'Admin')
     return true;
-  router.navigate(['/home']);
+  router.navigate(['/landing-page'])
   return false;
 };
 
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'adoption-center', component: AdoptionCenterComponent, canActivate: [authGuard] },
   { path: 'my-pets', component: MyPetsComponent, canActivate: [authGuard] },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'landing-page', component: LandingPageComponent },
+
   {
     path: 'admin',
     canActivate: [adminGuard],
@@ -53,5 +58,5 @@ export const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },
-  { path: '**', redirectTo: '/home' }
+  { path: '**', redirectTo: '/landing-page' }
 ];

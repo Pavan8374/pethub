@@ -56,8 +56,7 @@ export class AuthService {
     }
 
     userIsLogin(): boolean {
-        const localStorage = this.document.defaultView?.localStorage;
-        if (localStorage?.getItem(APP_AUTH_CONST)) {
+        if (!this.isTokenExpired()) {
             return true;
         } else {
             return false;
@@ -119,15 +118,24 @@ export class AuthService {
 
     isTokenExpired(): boolean {
         const token = this.getAuthToken();
+        if(token == null || token == ""){
+            return true;
+        }
         if (token) {
             const decodedToken = this.decodeToken(token);
             if (!decodedToken) {
+                console.log("Token couldn't be decoded");
                 return true;
             }
             const expirationTime = decodedToken.exp * 1000; // Convert to milliseconds
-            return Date.now() > expirationTime;
+            const currentTime = Date.now();
+            // console.log("Current time:", new Date(currentTime).toISOString());
+            // console.log("Expiration time:", new Date(expirationTime).toISOString());
+            // console.log("Time until expiration:", (expirationTime - currentTime) / (1000 * 60 * 60 * 24), "days");
+            return currentTime > expirationTime;
         }
-        return false
+        
+        return false;
     }
 
     getRole(): string | null {

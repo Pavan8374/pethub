@@ -1,15 +1,12 @@
 import { Component, inject, Injectable, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { PetManagementService } from '../../../../services/pet-management.service';
 import { GetPetsResponse, Pets } from '../../../../models/pet-management/GetPetsByFilter';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomToasterService } from '../../../../services/custom-toaster.service';
 import { NullResponseErrorMessage, PageSize, RemovePetMessage } from '../../../../consts/message';
-import { HttpParams } from '@angular/common/http';
 import { debounceTime, Subject } from 'rxjs';
-
-// Import Angular Material modules
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -17,6 +14,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
+
+// Define enum for search fields
+enum PetSearchKeyWord {
+  Name = 'Name',
+  Species = 'Species',
+  Breed = 'Breed'
+}
 
 @Component({
   selector: 'app-pet-management',
@@ -49,14 +53,16 @@ export class PetManagementComponent implements OnInit {
   pageSize: number = 10;
   totalPages: number = 0;
   isLoading: boolean = false;
-  searchField!: string;
+  searchField: PetSearchKeyWord = PetSearchKeyWord.Name; // Set default value
   searchSubject: Subject<string> = new Subject<string>();
   totalRecords!: number;
+
+  // Expose the enum to the template
+  PetSearchKeyWord = PetSearchKeyWord;
 
   private router = inject(Router);
   private petManagementService = inject(PetManagementService);
   private toastr = inject(CustomToasterService);
-  private route = inject(ActivatedRoute);
 
   ngOnInit() {
     this.setupSearchObservable();
@@ -94,7 +100,7 @@ export class PetManagementComponent implements OnInit {
   setupSearchObservable() {
     this.searchSubject.pipe(
       debounceTime(700)
-    ).subscribe((filterValue: string) => {
+    ).subscribe(() => {
       this.getPets();
     });
   }
@@ -114,15 +120,13 @@ export class PetManagementComponent implements OnInit {
   }
 
   getPets() {
-    debugger;
     this.isLoading = true;
-    const params = new HttpParams()
-      .set('SearchField', this.searchField || '') // Ensure empty string if not set
-      .set('SearchString', this.searchString || '') // Ensure empty string if not set
-      .set('IsAdopted', String(this.isAdopted)) // Convert boolean to string
-      .set('PageNumber', this.pageNumber.toString()) // Convert number to string
-      .set('PageSize', this.pageSize.toString()); // Convert number to string
-  
+
+    // Map searchField to its API-friendly format
+    const searchFieldParam = this.searchField;
+
+    const params = `?SearchField=${searchFieldParam}&SearchString=${this.searchString}&IsAdopted=${this.isAdopted}&PageNumber=${this.pageNumber}&PageSize=${this.pageSize}`;
+
     this.petManagementService.getPetsByFilter(params).subscribe(
       (response: GetPetsResponse) => {
         this.pets = response.data;
@@ -146,4 +150,10 @@ export class PetManagementComponent implements OnInit {
   getGenderIcon(gender: string): string {
     return gender.toLowerCase() === 'male' ? '♂' : '♀';
   }
+
+  objectKeys(obj: any): (keyof typeof PetSearchKeyWord)[] {
+    return Object.keys(obj).filter(key => isNaN(Number(key))) as (keyof typeof PetSearchKeyWord)[];
+  }
+  
+  
 }

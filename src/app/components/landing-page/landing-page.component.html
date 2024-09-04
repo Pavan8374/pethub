@@ -1,0 +1,25 @@
+<div class="landing-container">
+    <h1 class="title">Exciting News!</h1>
+    <p class="description">
+      Our mobile app is launching soon on both iOS and Android. Be the first to experience the magic!
+      Join our waitlist to get notified and gain early access.
+    </p>
+  
+    <form [formGroup]="waitlistForm" (ngSubmit)="onSubmit()" class="waitlist-form">
+      <input
+        type="email"
+        formControlName="email"
+        class="email-input"
+        placeholder="Enter your email address"
+        required
+      />
+      <button type="submit" class="btn join-btn" [disabled]="!waitlistForm.valid">
+        Join Waitlist
+      </button>
+    </form>
+
+    <div *ngIf="waitlistForm.get('email')?.invalid && waitlistForm.get('email')?.touched" class="invalid-feedback">
+        Enter a valid email.
+      </div>
+  </div>
+  
