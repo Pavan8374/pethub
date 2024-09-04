@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { StatsChartComponent } from '../stats-chart/stats-chart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -15,4 +16,15 @@ import { RouterModule } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {}
+export class HomeComponent {
+  private router = inject(Router);
+  private authService = inject(AuthService);
+
+  onClickAdoptionCenterButton() {
+    if (this.authService.userIsLogin()) {
+      this.router.navigate(['/adoption-center']);
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
+}

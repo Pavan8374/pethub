@@ -5,6 +5,7 @@ import { petManagement } from "../consts/const";
 import { Observable, tap } from "rxjs";
 import { Global } from "../shared/global";
 import { AddPet } from "../models/pet-management/AddPet";
+import { GetPetsResponse } from "../models/pet-management/GetPetsByFilter";
 
 @Injectable({
     providedIn: 'root',
@@ -55,15 +56,10 @@ export class PetManagementService {
             );
     }
 
-    getPetsByFilter(data: any): Observable<any> {
+    getPetsByFilter(data: any): Observable<GetPetsResponse> {
 
         return this.http
-        .get<any>(`${Global.WebUrl}${petManagement.getPetsByFilter}`, data)
-        .pipe(
-            tap((res: any) => {
-                return res;
-            })
-        );
+        .get<GetPetsResponse>(`${Global.WebUrl}${petManagement.getPetsByFilter}${data}`, )
     }
     
 

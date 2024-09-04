@@ -20,7 +20,7 @@
   .card-content {
     text-align: center;
     padding: 20px;
-    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun font */
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
   }
   
   .user-card {
@@ -33,6 +33,6 @@
   
   .card:hover {
     transform: translateY(-5px);
-    background-color: #ffdab9; /* Lighter color on hover */
+    background-color: #dd873c; /* Lighter color on hover */
   }
   

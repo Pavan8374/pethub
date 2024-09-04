@@ -3,6 +3,7 @@
   border-radius: 15px;
   box-shadow: 0 0 20px var(--neon-blue);
   font-family: 'Orbitron', sans-serif;
+  /* background-color: #f9f9f9; */
 }
 
 .header {
@@ -10,12 +11,6 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-}
-
-h1 {
-  font-size: 2.5em;
-  color: var(--neon-blue);
-  text-shadow: 0 0 10px var(--neon-blue);
 }
 
 .add-pet-button {
@@ -42,28 +37,25 @@ h1 {
   margin-bottom: 20px;
 }
 
-.search-input, .search-select {
-  padding: 8px;
-  background-color: rgb(175, 175, 174);
-  border: 2px solid var(--neon-pink);
-  border-radius: 10px;
-  color: var(--neon-pink);
+.search-input,
+.search-select {
+  padding: 2px;
   font-family: inherit;
+  transition: all 0.3s;
 }
 
 .adopted-checkbox {
   display: flex;
   align-items: center;
   gap: 5px;
-  color: var(--neon-green);
 }
 
 .search-button {
   padding: 8px 15px;
-  background-color: transparent;
+  /* background-color: transparent; */
   border: 2px solid var(--neon-blue);
   color: var(--neon-blue);
-  border-radius: 10px;
+  /* border-radius: 10px; */
   cursor: pointer;
   transition: all 0.3s;
 }
@@ -90,36 +82,7 @@ h1 {
   text-shadow: 0 0 10px var(--neon-pink);
 }
 
-.pets-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 10px;
-  margin-bottom: 20px;
-}
 
-.pets-table th, .pets-table td {
-  padding: 15px;
-  text-align: left;
-}
-
-.pets-table th {
-  background-color: var(--neon-blue);
-  color: var(--primary-bg);
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.pet-row {
-  background-color: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 10px var(--neon-green);
-  transition: all 0.3s;
-  color: white;
-}
-
-.pet-row:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 20px var(--neon-green);
-}
 
 .color-dot {
   display: inline-block;
@@ -135,16 +98,9 @@ h1 {
   gap: 5px;
 }
 
-.edit-button, .delete-button {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
 
 .edit-button {
-  background-color: transparent;
+  background-color: var(--light-neon-blue);
   border: 1px solid var(--neon-blue);
   color: var(--neon-blue);
 }
@@ -156,14 +112,12 @@ h1 {
 }
 
 .delete-button {
-  background-color: transparent;
+  background-color: var(--light-red);
   border: 1px solid var(--neon-pink);
-  color: var(--neon-pink);
 }
 
 .delete-button:hover {
   background-color: var(--neon-pink);
-  color: var(--primary-bg);
   box-shadow: 0 0 10px var(--neon-pink);
 }
 
@@ -199,4 +153,19 @@ h1 {
 .page-info {
   font-weight: bold;
   color: var(--neon-blue);
+}
+
+body.dark-theme .mat-table {
+  background-color: transparent;
+  color: var(--primary-bg);
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.mat-header-cell, .mat-cell {
+  padding: 12px 16px;
+}
+
+.mat-elevation-z8 {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }

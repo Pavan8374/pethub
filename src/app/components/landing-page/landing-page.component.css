@@ -1,0 +1,83 @@
+/* Main container for the landing page */
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    text-align: center;
+    min-height: 100vh;
+  }
+  
+  /* Title styling */
+  .title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Description styling */
+  .description {
+    font-size: 1.5rem;
+    /* color: var(--text-color); */
+    margin-bottom: 30px;
+    max-width: 600px;
+    line-height: 1.5;
+  }
+  
+  /* Form styling */
+  .waitlist-form {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  /* Input field styling */
+  .email-input {
+    padding: 15px;
+    border: 2px solid var(--neon-green);
+    border-radius: 20px;
+    font-size: 1rem;
+    outline: none;
+    color: var(black);
+    /* background-color: var(--secondary-bg); */
+    transition: border-color 0.3s;
+  }
+  
+  /* Input focus effect */
+  .email-input:focus {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue);
+  }
+  
+  /* Join button styling */
+  .join-btn {
+    padding: 15px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    color: var(--primary-bg);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  body.dark-theme .join-btn {
+    background: var(--neon-green);
+    box-shadow: 0 0 10px var(--neon-green);
+  }
+  
+  body.light-theme .join-btn {
+    background: var(--light-neon-green);
+    box-shadow: 0 0 10px var(--light-neon-green);
+  }
+  
+  /* Button hover effect */
+  body.light-theme .join-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--light--btn-hover);
+  }
+  
+  body.dark-theme .join-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--light-neon-green);
+  }
