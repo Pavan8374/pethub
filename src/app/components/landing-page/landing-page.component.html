@@ -1,25 +1,79 @@
 <div class="landing-container">
-    <h1 class="title">Exciting News!</h1>
-    <p class="description">
-      Our mobile app is launching soon on both iOS and Android. Be the first to experience the magic!
-      Join our waitlist to get notified and gain early access.
+  <!-- First Section: Explore -->
+  <section class="explore-section">
+    <h2 class="explore-title">Explore PetHub</h2>
+    <p class="explore-description">
+      Welcome to PetHub, your one-stop platform for all things pets! Whether you're looking to adopt, buy, sell, or simply find the best care tips and blogs for your pets, PetHub is here to help. Explore our website and discover a community dedicated to pet lovers.
     </p>
-  
-    <form [formGroup]="waitlistForm" (ngSubmit)="onSubmit()" class="waitlist-form">
-      <input
-        type="email"
-        formControlName="email"
-        class="email-input"
-        placeholder="Enter your email address"
-        required
-      />
-      <button type="submit" class="btn join-btn" [disabled]="!waitlistForm.valid">
-        Join Waitlist
-      </button>
-    </form>
+    <!-- <a type="button" routerLink="/sign-up">Sign up</a> -->
+    <a class="btn btn-primary" type="button" routerLink="/sign-up">Get Started</a>
+  </section>
 
-    <div *ngIf="waitlistForm.get('email')?.invalid && waitlistForm.get('email')?.touched" class="invalid-feedback">
-        Enter a valid email.
+  <!-- Second Section: Waitlist -->
+  <section class="waitlist-section">
+    <div class="waitlist-content">
+      <div class="waitlist-text">
+        <h2>Be the First to Know!</h2>
+        <p class="description">
+          Our mobile app is launching soon on both iOS and Android. Join our waitlist to get notified and gain early access to all PetHub features.
+        </p>
+        <form [formGroup]="waitlistForm" (ngSubmit)="onSubmit()" class="waitlist-form">
+          <input
+            type="email"
+            formControlName="email"
+            class="email-input"
+            placeholder="Enter your email address"
+            required
+          />
+          <button type="submit" class="btn join-btn" [disabled]="!waitlistForm.valid">
+            Join Waitlist
+          </button>
+        </form>
+        <div *ngIf="waitlistForm.get('email')?.invalid && waitlistForm.get('email')?.touched" class="invalid-feedback">
+          Enter a valid email.
+        </div>
       </div>
-  </div>
-  
+      <div class="waitlist-image">
+        <img src="assets/landingpage/l2.png" alt="Exciting App" class="themed-image" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Third Section: About PetHub -->
+  <section class="about-section">
+    <h2>About PetHub</h2>
+    <p>
+      PetHub is more than just a platform; it's a community for pet enthusiasts. Whether you're looking to adopt a furry friend, buy or sell pets, find the best pet care tips, read blogs, or connect with other pet lovers, PetHub is here for you. Join us and become part of a thriving pet community!
+    </p>
+  </section>
+
+  <!-- Fourth Section: Contact Us -->
+  <section class="contact-section">
+    <div class="contact-content">
+      <div class="contact-form">
+        <h2>Contact Us</h2>
+        <form>
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn contact-btn">Send Message</button>
+        </form>
+      </div>
+      <div class="contact-image">
+        <img src="assets/landingpage/launcher2.png" alt="Contact Us" class="themed-image" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <ul class="footer-links">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Testimonials</a></li>
+      <li><a href="#">Feedback</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Service</a></li>
+    </ul>
+    <p class="footer-note">© 2024 PetHub. All rights reserved.</p>
+  </footer>
+</div>
