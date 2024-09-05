@@ -1,94 +1,73 @@
-<section class="vh-100 web3-theme">
-  <div class="container h-80">
-    <div class="row d-flex justify-content-center align-items-center h-100" style="padding: 50px;">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-white web3-card">
-          <div class="card-body p-md-5">
-            <mat-horizontal-stepper labelPosition="bottom" backgroundColor="transparent" #stepper>
-              <mat-step label="Basic Information">
-                <form [formGroup]="signUpform" (ngSubmit)="onNextClick()">
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="firstName" class="form-control neon-input" formControlName="firstName" [ngClass]="{'is-invalid': signUpform.get('firstName')?.invalid && signUpform.get('firstName')?.touched}" />
-                      <label class="form-label neon-label" for="firstName">First Name</label>
-                      <div *ngIf="signUpform.get('firstName')?.invalid && signUpform.get('firstName')?.touched" class="invalid-feedback">
-                        First name is required.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="lastName" class="form-control neon-input" formControlName="lastName" [ngClass]="{'is-invalid': signUpform.get('lastName')?.invalid && signUpform.get('lastName')?.touched}" />
-                      <label class="form-label neon-label" for="lastName">Last Name</label>
-                      <div *ngIf="signUpform.get('lastName')?.invalid && signUpform.get('lastName')?.touched" class="invalid-feedback">
-                        Last name is required.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="userName" class="form-control neon-input" formControlName="userName" [ngClass]="{'is-invalid': signUpform.get('userName')?.invalid && signUpform.get('userName')?.touched}" />
-                      <label class="form-label neon-label" for="userName">Username</label>
-                      <div *ngIf="signUpform.get('userName')?.invalid && signUpform.get('userName')?.touched" class="invalid-feedback">
-                        Username is required.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="phoneNumber" class="form-control neon-input" formControlName="phoneNumber" [ngClass]="{'is-invalid': signUpform.get('phoneNumber')?.invalid && signUpform.get('phoneNumber')?.touched}" />
-                      <label class="form-label neon-label" for="phoneNumber">Phone Number</label>
-                      <div *ngIf="signUpform.get('phoneNumber')?.invalid && signUpform.get('phoneNumber')?.touched" class="invalid-feedback">
-                        Enter a valid phone number.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="d-flex justify-content-between mt-4">
-                    <button mat-button type="button" class="neon-button" (click)="stepper.next()">Next</button>
-                    <button mat-button type="button" (click)="router.navigate(['/'])">Cancel</button>
-                  </div>
-                </form>
-              </mat-step>
-              
-              <mat-step label="Account Details">
-                <form [formGroup]="signUpform" (ngSubmit)="onSignUpClick()">
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <div class="form-outline flex-fill mb-0">
-                      <input type="email" id="email" class="form-control neon-input" formControlName="email" [ngClass]="{'is-invalid': signUpform.get('email')?.invalid && signUpform.get('email')?.touched}" />
-                      <label class="form-label neon-label" for="email">Email</label>
-                      <div *ngIf="signUpform.get('email')?.invalid && signUpform.get('email')?.touched" class="invalid-feedback">
-                        Enter a valid email.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="password" class="form-control neon-input" formControlName="password" [ngClass]="{'is-invalid': signUpform.get('password')?.invalid && signUpform.get('password')?.touched}" />
-                      <label class="form-label neon-label" for="password">Password</label>
-                      <div *ngIf="signUpform.get('password')?.invalid && signUpform.get('password')?.touched" class="invalid-feedback">
-                        Password is required and must meet strength criteria.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="confirmPassword" class="form-control neon-input" formControlName="confirmPassword" [ngClass]="{'is-invalid': signUpform.get('confirmPassword')?.invalid && signUpform.get('confirmPassword')?.touched}" />
-                      <label class="form-label neon-label" for="confirmPassword">Confirm Password</label>
-                      <div *ngIf="signUpform.get('confirmPassword')?.invalid && signUpform.get('confirmPassword')?.touched" class="invalid-feedback">
-                        Confirm password is required.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="d-flex justify-content-between mt-4">
-                    <button mat-button type="button" class="neon-button" (click)="stepper.previous()">Back</button>
-                    <button mat-raised-button color="primary" type="submit" [disabled]="signUpform.invalid">Sign Up</button>
-                  </div>
-                </form>
-              </mat-step>
-            </mat-horizontal-stepper>
+<section class="signup-container">
+  <div class="signup-card">
+    <h2 class="signup-title">Join the Adventure</h2>
+    <mat-horizontal-stepper labelPosition="bottom" #stepper>
+      <mat-step label="Basic Information">
+        <form [formGroup]="signUpform" (ngSubmit)="onNextClick()">
+          <div class="form-group">
+            <input type="text" id="firstName" formControlName="firstName" required class="neon-input">
+            <label for="firstName">First Name</label>
+            <div *ngIf="signUpform.get('firstName')?.invalid && signUpform.get('firstName')?.touched" class="error-message">
+              First name is required.
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+          <div class="form-group">
+            <input type="text" id="lastName" formControlName="lastName" required class="neon-input">
+            <label for="lastName">Last Name</label>
+            <div *ngIf="signUpform.get('lastName')?.invalid && signUpform.get('lastName')?.touched" class="error-message">
+              Last name is required.
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" id="userName" formControlName="userName" required class="neon-input">
+            <label for="userName">Username</label>
+            <div *ngIf="signUpform.get('userName')?.invalid && signUpform.get('userName')?.touched" class="error-message">
+              Username is required.
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="phoneNumber" formControlName="phoneNumber" required class="neon-input">
+            <label for="phoneNumber">Phone Number</label>
+            <div *ngIf="signUpform.get('phoneNumber')?.invalid && signUpform.get('phoneNumber')?.touched" class="error-message">
+              Enter a valid phone number.
+            </div>
+          </div>
+          <div class="button-group">
+            <button type="button" class="btn btn-next" (click)="stepper.next()">Next</button>
+            <button type="button" class="btn btn-cancel" (click)="router.navigate(['/'])">Cancel</button>
+          </div>
+        </form>
+      </mat-step>
+      
+      <mat-step label="Account Details">
+        <form [formGroup]="signUpform" (ngSubmit)="onSignUpClick()">
+          <div class="form-group">
+            <input type="email" id="email" formControlName="email" required class="neon-input">
+            <label for="email">Email</label>
+            <div *ngIf="signUpform.get('email')?.invalid && signUpform.get('email')?.touched" class="error-message">
+              Enter a valid email.
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="password" id="password" formControlName="password" required class="neon-input">
+            <label for="password">Password</label>
+            <div *ngIf="signUpform.get('password')?.invalid && signUpform.get('password')?.touched" class="error-message">
+              Password is required and must meet strength criteria.
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="password" id="confirmPassword" formControlName="confirmPassword" required class="neon-input">
+            <label for="confirmPassword">Confirm Password</label>
+            <div *ngIf="signUpform.get('confirmPassword')?.invalid && signUpform.get('confirmPassword')?.touched" class="error-message">
+              Confirm password is required.
+            </div>
+          </div>
+          <div class="button-group">
+            <button type="button" class="btn btn-back" (click)="stepper.previous()">Back</button>
+            <button type="submit" class="btn btn-signup" [disabled]="signUpform.invalid">Sign Up</button>
+          </div>
+        </form>
+      </mat-step>
+    </mat-horizontal-stepper>
   </div>
 </section>

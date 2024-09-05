@@ -1,83 +1,253 @@
 /* Main container for the landing page */
 .landing-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 50px 20px;
-    text-align: center;
-    min-height: 100vh;
-  }
-  
-  /* Title styling */
-  .title {
-    font-size: 3rem;
-    margin-bottom: 20px;
-  }
-  
-  /* Description styling */
-  .description {
-    font-size: 1.5rem;
-    /* color: var(--text-color); */
-    margin-bottom: 30px;
-    max-width: 600px;
-    line-height: 1.5;
-  }
-  
-  /* Form styling */
-  .waitlist-form {
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-    width: 100%;
-    max-width: 500px;
-  }
-  
-  /* Input field styling */
-  .email-input {
-    padding: 15px;
-    border: 2px solid var(--neon-green);
-    border-radius: 20px;
-    font-size: 1rem;
-    outline: none;
-    color: var(black);
-    /* background-color: var(--secondary-bg); */
-    transition: border-color 0.3s;
-  }
-  
-  /* Input focus effect */
-  .email-input:focus {
-    border-color: var(--neon-blue);
-    box-shadow: 0 0 10px var(--neon-blue);
-  }
-  
-  /* Join button styling */
-  .join-btn {
-    padding: 15px;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
-    color: var(--primary-bg);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  body.dark-theme .join-btn {
-    background: var(--neon-green);
-    box-shadow: 0 0 10px var(--neon-green);
-  }
-  
-  body.light-theme .join-btn {
-    background: var(--light-neon-green);
-    box-shadow: 0 0 10px var(--light-neon-green);
-  }
-  
-  /* Button hover effect */
-  body.light-theme .join-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px var(--light--btn-hover);
-  }
-  
-  body.dark-theme .join-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px var(--light-neon-green);
-  }
+  padding: 50px 20px;
+  /* background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg)); */
+  /* border-top: 5px solid var(--neon-green); */
+  /* border-bottom: 5px solid var(--neon-pink); */
+}
+
+/* Explore Section */
+.explore-section {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 20px;
+  background: linear-gradient(135deg, #b47ed4, transparent);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+.explore-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  /* color: var(--neon-blue); */
+  /* text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); */
+}
+
+.explore-description {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  /* color: var(--text-color); */
+}
+
+.get-started-btn {
+  padding: 15px 30px;
+  border-radius: 25px;
+  background-color: var(--neon-green);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.get-started-btn:hover {
+  background-color: var(--neon-pink);
+  color: var(--primary-bg);
+  box-shadow: 0 0 15px var(--neon-pink);
+}
+
+/* Waitlist Section */
+.waitlist-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  padding: 20px;
+  background: linear-gradient(135deg, #c7ec8c, transparent);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(13, 238, 238, 0.973);
+}
+
+.waitlist-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  gap: 20px;
+}
+
+.waitlist-text {
+  flex: 1;
+}
+
+.waitlist-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.themed-image {
+  max-width: 80%;
+  border:none;
+  border-radius: 15px;
+  filter: brightness(0.8) contrast(1.2);
+  transition: filter 0.3s ease-in-out;
+}
+
+body.light-theme .themed-image {
+  filter: brightness(1) contrast(1);
+}
+
+/* About Section */
+.about-section {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 20px;
+  background: linear-gradient(135deg, #d47ea9, transparent);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px rgba(33, 150, 243, 0.7);
+}
+
+.about-section p {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Contact Section */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #cbecec, transparent);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 42, 0.973);
+  margin-bottom: 50px; /* Add margin-bottom to create space */
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 1000px;
+  width: 100%;
+  gap: 20px;
+}
+
+.contact-form {
+  flex: 1;
+  max-width: 450px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 2px solid var(--neon-green);
+  color: var(--text-color);
+}
+
+.contact-btn {
+  padding: 10px 20px;
+  border-radius: 25px;
+  background-color: var(--neon-green);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  background-color: var(--neon-pink);
+  color: var(--primary-bg);
+  box-shadow: 0 0 15px var(--neon-pink);
+}
+
+.contact-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-image img {
+  max-width: 60%;
+  border-radius: 15px;
+  filter: brightness(0.8) contrast(1.2);
+  transition: filter 0.3s ease-in-out;
+}
+
+/* Footer Section */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #35cbf0, transparent);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 0 20px rgb(46, 4, 235);
+  margin-top: 50px; /* Add margin-top to create space */
+}
+
+.footer-links {
+  list-style: none;
+  padding: 10;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer-links li {
+  display: inline;
+}
+
+.footer-links a {
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-note {
+  margin-top: 10px;
+}
+
+/* Base styling for sections */
+section {
+  transition: transform 0.6s, opacity 0.6s;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  perspective: 1000px; /* Set perspective for a realistic 3D effect */
+  opacity: 0;
+  transform: rotateY(90deg); /* Initial state, slightly rotated */
+}
+
+/* Class to trigger flip animation */
+.flip-section {
+  transform: rotateY(0deg); /* Flip to show the section normally */
+  opacity: 1;
+}
+
+section:hover {
+  transform: rotateY(0deg); /* Flip to show the section normally */
+  opacity: 1;
+  transition: transform 0.6s, opacity 0.6s;
+}
+
+.email-input {
+  width: 70%;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 2px solid var(--neon-green);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--text-color);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.email-input:focus {
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 10px var(--neon-pink);
+  transform: scale(1.02);
+}
+
+.email-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}

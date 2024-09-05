@@ -1,135 +1,209 @@
-/* Background and general styling */
-.vh-100 {
-    min-height: 100vh; /* Allows the section to grow with content */
-
-    color: #00FFDD;
-    font-family: 'Roboto', sans-serif;
-    padding: 20px;
-    box-sizing: border-box; /* Ensures padding does not affect width calculations */
-}
-
-/* Card styling */
-.card {
-    border-radius: 25px;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    width: 80%; /* Decrease the card width */
-    max-width: 600px; /* Set a maximum width */
-    margin: auto; /* Center align the card */
-    padding: 20px; /* Add padding inside the card */
-}
-
-
-/* .card-body{
-    background-color: var(--light-secondary-bg);
-} */
-
-/* Heading styling */
-.h1 {
-    color: #FF00FF;
-    text-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
-}
-
-/* Form control styling */
-.form-outline .form-control {
-    border-radius: 15px;
-    /* background-color: rgba(0, 0, 0, 0.5); */
-    color: #00FFFF;
-    box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.3);
-    backdrop-filter: blur(5px);
-    width: 100%; /* Adjust text box width */
-    max-width: 400px; /* Set a maximum width for text boxes */
-}
-
-/* Form labels */
-.form-outline .form-label {
-    color: #FFFFFF;
-    text-shadow: 0 0 5px #FF00FF;
-}
-
-/* Button styling */
-.btn-primary {
-    background-color: #FF00FF;
-    border-radius: 20px;
-    box-shadow: 0 0 20px #FF00FF;
-    color: #FFFFFF;
-    text-shadow: 0 0 5px #00FFFF;
-    transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: #00FFFF;
-    box-shadow: 0 0 20px #00FFFF;
-}
-
-/* Checkbox styling */
-.form-check-input {
-    border-radius: 50%;
-    background-color: #FF00FF;
-}
-
-/* Link styling */
-.form-check-label a {
-    color: #00FFFF;
-    text-shadow: 0 0 10px #00FFFF;
-}
-
-p.mb-0 a {
-    color: #FF00FF;
-    text-shadow: 0 0 10px #FF00FF;
-}
-
-/* GIF styling */
-.custom-gif {
-    max-width: 100%;
-    height: auto;
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 50px 20px;
+    /* background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg)); */
+  }
+  
+  .signup-card {
     width: 100%;
-    max-width: 300px;
-}
-
-/* Neon input styling */
-.neon-input {
-    border: 2px solid #00FFFF;
+    max-width: 600px;
+    padding: 40px;
     border-radius: 15px;
-    /* background-color: rgba(0, 0, 0, 0.5); */
-    color: #00FFFF;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-    transition: box-shadow 0.3s ease;
-    width: 100%; /* Adjust text box width */
-    max-width: 400px; /* Set a maximum width for text boxes */
-}
-
-.neon-input:focus {
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
-    border-color: #00FFFF;
-}
-
-/* Neon button styling */
-.neon-button {
-    background-color: #FF00FF;
-    border-radius: 20px;
-    color: #FFFFFF;
-    text-shadow: 0 0 10px #00FFFF;
-    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+    background: linear-gradient(135deg, #b47ed4, transparent);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
     transition: all 0.3s ease;
-}
-
-.neon-button:hover {
-    background-color: #00FFFF;
-    color: #000000;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
-}
-
-/* Stepper styling */
-.web3-theme .mat-step-header {
-    color: #00FFFF;
+  }
+  
+  .signup-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+  }
+  
+  .form-group {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  .neon-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 2px solid var(--neon-green);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--text-color);
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .neon-input:focus {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 10px var(--neon-pink);
+    transform: scale(1.02);
+  }
+  
+  .form-group {
+    position: relative;
+    margin-bottom: 30px;
+    padding-top: 20px; /* Add this line to create space at the top */
+  }
+  
+  .form-group label {
+    position: absolute;
+    top: 35px; /* Adjust this value to move the label down */
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    pointer-events: none;
+    transition: 0.3s ease all;
+  }
+  
+  .neon-input:focus ~ label,
+  .neon-input:not(:placeholder-shown) ~ label {
+    top: 20px; /* Adjust this value to ensure the label moves to the correct position when focused/filled */
+    font-size: 14px;
+    color: var(--neon-green);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0 5px;
+  }
+  
+  .error-message {
+    color: #FF6B6B;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  
+  .btn {
+    padding: 15px 30px;
+    border: none;
     border-radius: 25px;
-}
-
-.web3-theme .mat-step-icon {
-    color: #FF00FF;
-}
-
-.web3-theme .mat-step-label {
-    color: #00FFFF;
-}
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-next,
+  .btn-signup {
+    background-color: var(--neon-green);
+    color: white;
+  }
+  
+  .btn-cancel,
+  .btn-back {
+    background-color: var(--neon-pink);
+    color: var(--primary-bg);
+  }
+  
+  .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--neon-blue);
+  }
+  
+  .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  /* Stepper customization */
+  ::ng-deep .mat-horizontal-stepper-header-container {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  ::ng-deep .mat-step-header {
+    background-color: transparent !important;
+  }
+  
+  ::ng-deep .mat-step-icon {
+    background-color: var(--neon-blue) !important;
+  }
+  
+  ::ng-deep .mat-step-label {
+    color: var(--text-color) !important;
+  }
+  
+  /* Animation */
+  .signup-card {
+    animation: flipIn 0.6s ease-out;
+  }
+  
+  @keyframes flipIn {
+    0% {
+      opacity: 0;
+      transform: rotateY(90deg);
+    }
+    100% {
+      opacity: 1;
+      transform: rotateY(0deg);
+    }
+  }
+  
+  /* Light theme adjustments */
+  body.light-theme .signup-card {
+    background: linear-gradient(135deg, #c7ec8c, transparent);
+    box-shadow: 0 0 20px rgba(13, 238, 238, 0.973);
+  }
+  
+  body.light-theme .signup-title {
+    color: var(--light-btn-bg);
+    text-shadow: 0 0 10px rgba(33, 150, 243, 0.3);
+  }
+  
+  body.light-theme .neon-input {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--light-text-color);
+    border-color: var(--light-neon-blue);
+  }
+  
+  body.light-theme .neon-input:focus {
+    border-color: var(--light-neon-pink);
+    box-shadow: 0 0 10px var(--light-neon-pink);
+  }
+  
+  body.light-theme .form-group label {
+    color: rgba(0, 0, 0, 0.7);
+  }
+  
+  body.light-theme .neon-input:focus ~ label,
+  body.light-theme .neon-input:not(:placeholder-shown) ~ label {
+    color: var(--light-neon-blue);
+    background: rgba(255, 255, 255, 0.9);
+  }
+  
+  body.light-theme .btn-next,
+  body.light-theme .btn-signup {
+    background-color: var(--light-btn-bg);
+    color: var(--light-primary-bg);
+  }
+  
+  body.light-theme .btn-cancel,
+  body.light-theme .btn-back {
+    background-color: var(--light-neon-pink);
+    color: var(--light-primary-bg);
+  }
+  
+  body.light-theme .btn:hover {
+    box-shadow: 0 0 15px var(--light-neon-green);
+  }
+  
+  body.light-theme ::ng-deep .mat-step-icon {
+    background-color: var(--light-neon-blue) !important;
+  }
+  
+  body.light-theme ::ng-deep .mat-step-label {
+    color: var(--light-text-color) !important;
+  }
