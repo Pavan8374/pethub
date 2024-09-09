@@ -27,7 +27,6 @@ export class AdoptionCenterComponent {
   }
 
   getAvailablePets() {
-    debugger
     //this.SearchField = 1;
     this.SearchString = "Dog"
     let params = `${'?SearchField=Species'+'&SearchString='+(this.SearchString)+'&IsAdopted='+(this.isAdopted) +'&PageNumber=1&PageSize=10'}`
