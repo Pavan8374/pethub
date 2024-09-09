@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    PETS_API_KEY: 'your-api-key-here' 
+    apiUrl: 'https://applicationserverwebapi20240908210302.azurewebsites.net/'
   };
