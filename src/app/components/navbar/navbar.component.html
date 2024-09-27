@@ -4,32 +4,40 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" [ngClass]="{'show': isNavbarCollapsed}">
+    <div class="collapse navbar-collapse"
+        [ngClass]="{'show': isNavbarCollapsed}">
         <ul class="navbar-nav me-auto">
             <li class="nav-item" *ngIf="isLoggedIn()">
-                <a class="btn btn-primary" href="#" (click)="closeNavbar()">Home</a>
+                <a routerLink="/home" class="btn btn-primary"
+                    (click)="closeNavbar()">Home</a>
             </li>
             <li class="nav-item" *ngIf="isLoggedIn()">
-                <a routerLink="/adoption-center" class="btn btn-primary" (click)="closeNavbar()">Adoption Center</a>
+                <a routerLink="/adoption-center" class="btn btn-primary"
+                    (click)="closeNavbar()">Adoption Center</a>
             </li>
             <li class="nav-item" *ngIf="isLoggedIn()">
-                <a routerLink="/my-pets" class="btn btn-primary" (click)="closeNavbar()">My Pets</a>
+                <a routerLink="/my-pets" class="btn btn-primary"
+                    (click)="closeNavbar()">My Pets</a>
             </li>
         </ul>
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
                 <button (click)="toggleTheme()" class="btn-toggle-theme">
-                    <i [ngClass]="{'bi-sun-fill': isDarkTheme, 'bi-moon-fill': !isDarkTheme}"></i>
+                    <i
+                        [ngClass]="{'bi-sun-fill': isDarkTheme, 'bi-moon-fill': !isDarkTheme}"></i>
                 </button>
             </li>
             <li class="nav-item" *ngIf="!isLoggedIn()">
-                <a routerLink="/sign-up" class="btn btn-primary" (click)="closeNavbar()">Sign Up</a>
+                <a routerLink="/sign-up" class="btn btn-primary"
+                    (click)="closeNavbar()">Sign Up</a>
             </li>
             <li class="nav-item" *ngIf="!isLoggedIn()">
-                <a routerLink="/login" class="btn btn-primary" (click)="closeNavbar()">Log in</a>
+                <a routerLink="/login" class="btn btn-primary"
+                    (click)="closeNavbar()">Log in</a>
             </li>
             <li class="nav-item" *ngIf="isLoggedIn()">
-                <button (click)="logout(); closeNavbar()" class="btn btn-danger">Logout</button>
+                <button (click)="logout(); closeNavbar()"
+                    class="btn btn-danger">Logout</button>
             </li>
         </ul>
     </div>

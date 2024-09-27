@@ -21,6 +21,7 @@ export class HomeComponent {
   private authService = inject(AuthService);
 
   onClickAdoptionCenterButton() {
+    debugger;
     if (this.authService.userIsLogin()) {
       this.router.navigate(['/adoption-center']);
     } else {
