@@ -1,14 +1,14 @@
-# Virtual Pet Sanctuary
+# Pet Hub
 
-Welcome to the Virtual Pet Sanctuary, a web application designed to provide a unique and engaging experience for pet enthusiasts. Our platform allows users to explore, adopt, and nurture virtual pets, creating a fun and interactive environment for all ages.
+Welcome to the Pet Hub, a web application designed to provide a unique and engaging experience for pet enthusiasts. Our platform allows users to explore, adopt, and nurture virtual pets, creating a fun and interactive environment for all ages.
 
 ## Live Demo
 
-Check out the live version of our website here: [Virtual Pet Sanctuary](https://virtual-pet-sanctuary-7d8h.vercel.app/)
+Check out the live version of our website here: [Pet Hub](https://pethub-tan.vercel.app/)
 
 ## Overview
 
-The Virtual Pet Sanctuary is more than just a pet adoption platform; it's a community for pet lovers. Our mission is to raise awareness about the joys and responsibilities of pet ownership while providing a virtual space for users to experience the companionship of pets.
+The Pet Hub is more than just a pet adoption platform; it's a community for pet lovers. Our mission is to raise awareness about the joys and responsibilities of pet ownership while providing a virtual space for users to experience the companionship of pets.
 
 ### Why Virtual Pets?
 
@@ -70,8 +70,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Contact
 
-For more information or inquiries, please contact us at [info@virtualpetsanctuary.com](mailto:info@virtualpetsanctuary.com).
+For more information or inquiries, please contact us at [info@pethub.com](mailto:info@pethub.com).
 
 ---
 
-Thank you for visiting the Virtual Pet Sanctuary. We hope you enjoy your time here and consider supporting real-life pet adoption!
+Thank you for visiting the Pet Hub. We hope you enjoy your time here and consider supporting real-life pet adoption!
